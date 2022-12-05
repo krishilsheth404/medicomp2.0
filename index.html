@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GARO ESTATE | Home page</title>
+    <meta name="description" content="GARO is a real-estate template">
+    <meta name="author" content="Kimarotec">
+    <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/fontello.css">
+    <link href="assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+    <link href="assets/fonts/icon-7-stroke/css/helper.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/icheck.min_all.css">
+    <link rel="stylesheet" href="assets/css/price-range.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.css">
+    <link rel="stylesheet" href="assets/css/owl.transitions.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+</head>
+
+<style>
+    .swiper {
+        width: 100%;
+        height: 20%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        height: 450px;
+        width: 150px;
+        background-color: aqua;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .swiper-slide img {
+        display: block;
+
+    }
+</style>
+
+<style>
+    .card {
+        position: relative;
+        width: 260px;
+        height: 320px;
+        box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.014), 0 6.7px 5.3px rgba(0, 0, 0, 0.02), 0 12.5px 10px rgba(0, 0, 0, 0.025), 0 22.3px 17.9px rgba(0, 0, 0, 0.03), 0 41.8px 33.4px rgba(0, 0, 0, 0.036), 0 100px 80px rgba(0, 0, 0, 0.05);
+    }
+
+    .card--image {
+        width: 500px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .card--image img {
+        width: 140%;
+        height: 140%;
+        object-fit: cover;
+    }
+
+    .card--info {
+        --size: 20px;
+        width: var(--size);
+        height: var(--size);
+        background: rgba(0, 0, 0, 0.75);
+        border-radius: 2px;
+        position: absolute;
+        transition: width 550ms ease, height 550ms ease, right 550ms ease, background 550ms ease;
+        overflow: hidden;
+        box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.014), 0 6.7px 5.3px rgba(0, 0, 0, 0.02), 0 12.5px 10px rgba(0, 0, 0, 0.025), 0 22.3px 17.9px rgba(0, 0, 0, 0.03), 0 41.8px 33.4px rgba(0, 0, 0, 0.036), 0 100px 80px rgba(0, 0, 0, 0.05), 0 0px 2.2px rgba(0, 0, 0, 0.045), 0 0px 5.3px rgba(0, 0, 0, 0.065), 0 0px 10px rgba(0, 0, 0, 0.08), 0 0px 17.9px rgba(0, 0, 0, 0.095), 0 0px 33.4px rgba(0, 0, 0, 0.115), 0 0px 80px rgba(0, 0, 0, 0.16), 0 0.2px 2.2px rgba(0, 0, 0, 0.014), 0 0.6px 5.3px rgba(0, 0, 0, 0.02), 0 1.1px 10px rgba(0, 0, 0, 0.025), 0 2px 17.9px rgba(0, 0, 0, 0.03), 0 3.8px 33.4px rgba(0, 0, 0, 0.036), 0 9px 80px rgba(0, 0, 0, 0.05);
+    }
+
+    .card--info::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.25) 50%, transparent 100%);
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 550ms ease;
+    }
+
+    .card--info.info--1 {
+        bottom: 47%;
+        right: 80%;
+    }
+
+    .card--info.info--1 .info--image img {
+        top: -80%;
+        left: -20%;
+    }
+
+    .card--info.info--2 {
+        bottom: 25%;
+        right: 15%;
+    }
+
+    .card--info.info--2 .info--image img {
+        right: -20%;
+        bottom: -80%;
+    }
+
+    .card--info .icon {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card--info .icon ion-icon {
+        color: white;
+    }
+
+    .card--info .info--text {
+        display: block;
+        position: absolute;
+        left: 10%;
+        bottom: 5%;
+        font-size: 0.55rem;
+        letter-spacing: 1px;
+        font-family: "Montserrat";
+        font-weight: bold;
+        color: #fff;
+        white-space: nowrap;
+        z-index: 2;
+        opacity: 0;
+        transform: translateY(25%);
+        transition: opacity 250ms ease, transform 250ms ease;
+    }
+
+    .card--info .info--image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .card--info .info--image img {
+        position: absolute;
+        width: 340%;
+        height: 340%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 550ms ease;
+    }
+
+    .card:hover .card--info {
+        --size: 100px;
+    }
+
+    .card:hover .card--info::after {
+        opacity: 1;
+    }
+
+    .card:hover .card--info.info--1 {
+        right: 71%;
+        transition-delay: 100ms;
+    }
+
+    .card:hover .card--info.info--2 {
+        right: -10%;
+    }
+
+    .card:hover .card--info .info--image img {
+        opacity: 1;
+    }
+
+    .card:hover .card--info .info--text {
+        transition-delay: 550ms;
+        opacity: 1;
+        transform: translateY(0%);
+    }
+
+    .support {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        padding: 10px;
+        display: flex;
+    }
+
+    .support a {
+        margin: 0 10px;
+        color: #fff;
+        font-size: 1.8rem;
+        backface-visibility: hidden;
+        transition: all 150ms ease;
+    }
+
+    .support a:hover {
+        transform: scale(1.1);
+    }
+</style>
+
+<body>
+
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!-- Body content -->
+
+
+    <!--End top header -->
+
+    <nav class="navbar navbar-default ">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="medaz.html"><img src="assets/img/logo.png" alt=""></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse yamm" id="navigation">
+                <div class="button navbar-right">
+                    <button class="navbar-btn nav-button wow bounceInRight login"
+                        onclick=" window.open('register.html')" data-wow-delay="0.45s">Login</button>
+                    <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')"
+                        data-wow-delay="0.48s">Submit</button>
+                </div>
+                <ul class="main-nav nav navbar-nav navbar-right">
+                    <li class="dropdown ymm-sw " data-wow-delay="0.1s">
+                        <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown"
+                            data-delay="200">Home <b class="caret"></b></a>
+                        <ul class="dropdown-menu navbar-nav">
+                            <li>
+                                <a href="index-2.html">Home Style 2</a>
+                            </li>
+                            <li>
+                                <a href="index-3.html">Home Style 3</a>
+                            </li>
+                            <li>
+                                <a href="index-4.html">Home Style 4</a>
+                            </li>
+                            <li>
+                                <a href="index-5.html">Home Style 5</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="properties.html">Properties</a>
+                    </li>
+                    <li class="wow fadeInDown" data-wow-delay="0.3s"><a class="" href="property.html">Property</a></li>
+                    <li class="dropdown yamm-fw" data-wow-delay="0.4s">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                            data-delay="200">Template <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h5>Home pages</h5>
+                                            <ul>
+                                                <li>
+                                                    <a href="index.html">Home Style 1</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index-2.html">Home Style 2</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index-3.html">Home Style 3</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index-4.html">Home Style 4</a>
+                                                </li>
+                                                <li>
+                                                    <a href="index-5.html">Home Style 5</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>Pages and blog</h5>
+                                            <ul>
+                                                <li><a href="blog.html">Blog listing</a> </li>
+                                                <li><a href="single.html">Blog Post (full)</a> </li>
+                                                <li><a href="single-right.html">Blog Post (Right)</a> </li>
+                                                <li><a href="single-left.html">Blog Post (left)</a> </li>
+                                                <li><a href="contact.html">Contact style (1)</a> </li>
+                                                <li><a href="contact-3.html">Contact style (2)</a> </li>
+                                                <li><a href="contact_3.html">Contact style (3)</a> </li>
+                                                <li><a href="faq.html">FAQ page</a> </li>
+                                                <li><a href="404.html">404 page</a> </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>Property</h5>
+                                            <ul>
+                                                <li><a href="property-1.html">Property pages style (1)</a> </li>
+                                                <li><a href="property-2.html">Property pages style (2)</a> </li>
+                                                <li><a href="property-3.html">Property pages style (3)</a> </li>
+                                            </ul>
+
+                                            <h5>Properties list</h5>
+                                            <ul>
+                                                <li><a href="properties.html">Properties list style (1)</a> </li>
+                                                <li><a href="properties-2.html">Properties list style (2)</a> </li>
+                                                <li><a href="properties-3.html">Properties list style (3)</a> </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5>Property process</h5>
+                                            <ul>
+                                                <li><a href="submit-property.html">Submit - step 1</a> </li>
+                                                <li><a href="submit-property.html">Submit - step 2</a> </li>
+                                                <li><a href="submit-property.html">Submit - step 3</a> </li>
+                                            </ul>
+                                            <h5>User account</h5>
+                                            <ul>
+                                                <li><a href="register.html">Register / login</a> </li>
+                                                <li><a href="user-properties.html">Your properties</a> </li>
+                                                <li><a href="submit-property.html">Submit property</a> </li>
+                                                <li><a href="change-password.html">Change password</a> </li>
+                                                <li><a href="user-profile.html">Your profile</a> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.yamm-content -->
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="contact.html">Contact</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!-- End of nav bar -->
+
+    <div class="slider-area"
+        style="background-image: linear-gradient( 90deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );">
+        <div>
+
+        </div>
+        <div class="slider-content">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+                    <h2 style="color:white">India's 1<sup>st</sup> Platform To Compare Medicine Prices</h2>
+                    <p style="color: white;text-shadow: 2px 2px 10px white;font-size: 20px">Get Live Prices Of Medicines
+                        From Different Sites Here Within 5-10 seconds.</p>
+                    <div class="search-form wow pulse animated" data-wow-delay="0.8s"
+                        style="visibility: visible; animation-delay: 0.8s; animation-name: pulse;">
+
+                        <form id="msform" action="/details" method="POST" class="form-inline">
+
+                            <div class="form-group">
+                                <input type="text" required autocomplete="on" minlength="3" class="form-control"
+                                    name="foodItem" placeholder="Medicine Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" required autocomplete="off" class="form-control" name="pin"
+                                    placeholder="Pin Code">
+                            </div>
+
+                            <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- property area -->
+
+
+    <!-- Swiper JS -->
+
+
+    <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                    <h2>Deals Of The Day </h2>
+                    <p>Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu
+                        ultricies . </p>
+                </div>
+            </div>
+
+         
+
+            <div class="row">
+                <div class="proerty-th">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+
+
+                            <div class="col-sm-6 col-md-3 p0 swiper-slide">
+                                <div class="container">
+                                    <div class="card">
+                                        <div class="card--image">
+                                            <img src="data:image/jpeg;base64,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"
+                                                alt="image">
+                                        </div>
+                                        <div class="card--info info--1">
+                                            <span class="info--text">SPACIOUS</span>
+                                            <div class="icon">
+                                                <ion-icon name="add-outline"></ion-icon>
+                                            </div>
+                                            <div class="info--image">
+                                                <img src="https://source.unsplash.com/-HxIhfS_dUk" alt="info image">
+                                            </div>
+                                        </div>
+                                        <div class="card--info info--2">
+                                            <span class="info--text">ACCESSIBLE</span>
+                                            <div class="icon">
+                                                <ion-icon name="add-outline"></ion-icon>
+                                            </div>
+                                            <div class="info--image">
+                                                <img src="https://source.unsplash.com/-HxIhfS_dUk" alt="info image">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Welcome area -->
+    <div class="Welcome-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 Welcome-entry  col-sm-12">
+                    <div class="col-md-5 col-md-offset-2 col-sm-6 col-xs-12">
+                        <div class="welcome_text wow fadeInLeft" data-wow-delay="0.3s" data-wow-offset="100">
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                                    <!-- /.feature title -->
+                                    <h2>GARO ESTATE </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-6 col-xs-12">
+                        <div class="welcome_services wow fadeInRight" data-wow-delay="0.3s" data-wow-offset="100">
+                            <div class="row">
+                                <div class="col-xs-6 m-padding">
+                                    <div class="welcome-estate">
+                                        <div class="welcome-icon">
+                                            <i class="pe-7s-home pe-4x"></i>
+                                        </div>
+                                        <h3>Any property</h3>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 m-padding">
+                                    <div class="welcome-estate">
+                                        <div class="welcome-icon">
+                                            <i class="pe-7s-users pe-4x"></i>
+                                        </div>
+                                        <h3>More Clients</h3>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-xs-12 text-center">
+                                    <i class="welcome-circle"></i>
+                                </div>
+
+                                <div class="col-xs-6 m-padding">
+                                    <div class="welcome-estate">
+                                        <div class="welcome-icon">
+                                            <i class="pe-7s-notebook pe-4x"></i>
+                                        </div>
+                                        <h3>Easy to use</h3>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 m-padding">
+                                    <div class="welcome-estate">
+                                        <div class="welcome-icon">
+                                            <i class="pe-7s-help2 pe-4x"></i>
+                                        </div>
+                                        <h3>Any help </h3>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--TESTIMONIALS -->
+    <div class="testimonial-area recent-property" style="background-color: #FCFCFC; padding-bottom: 15px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                    <!-- /.feature title -->
+                    <h2>Our Customers Said </h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="row testimonial">
+                    <div class="col-md-12">
+                        <div id="testimonial-slider">
+                            <div class="item">
+                                <div class="client-text">
+                                    <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
+                                    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                </div>
+                                <div class="client-face wow fadeInRight" data-wow-delay=".9s">
+                                    <img src="assets/img/client-face1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="client-text">
+                                    <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
+                                    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                </div>
+                                <div class="client-face">
+                                    <img src="assets/img/client-face2.png" alt="">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="client-text">
+                                    <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
+                                    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                </div>
+                                <div class="client-face">
+                                    <img src="assets/img/client-face1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="client-text">
+                                    <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
+                                    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                </div>
+                                <div class="client-face">
+                                    <img src="assets/img/client-face2.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Count area -->
+    <div class="count-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                    <!-- /.feature title -->
+                    <h2>You can trust Us </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-xs-12 percent-blocks m-main" data-waypoint-scroll="true">
+                    <div class="row">
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="count-item">
+                                <div class="count-item-circle">
+                                    <span class="pe-7s-users"></span>
+                                </div>
+                                <div class="chart" data-percent="5000">
+                                    <h2 class="percent" id="counter">0</h2>
+                                    <h5>HAPPY CUSTOMER </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="count-item">
+                                <div class="count-item-circle">
+                                    <span class="pe-7s-home"></span>
+                                </div>
+                                <div class="chart" data-percent="12000">
+                                    <h2 class="percent" id="counter1">0</h2>
+                                    <h5>Properties in stock</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="count-item">
+                                <div class="count-item-circle">
+                                    <span class="pe-7s-flag"></span>
+                                </div>
+                                <div class="chart" data-percent="120">
+                                    <h2 class="percent" id="counter2">0</h2>
+                                    <h5>City registered </h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <div class="count-item">
+                                <div class="count-item-circle">
+                                    <span class="pe-7s-graph2"></span>
+                                </div>
+                                <div class="chart" data-percent="5000">
+                                    <h2 class="percent" id="counter3">5000</h2>
+                                    <h5>DEALER BRANCHES</h5>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- boy-sale area -->
+    <div class="boy-sale-area">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0 col-xs-12">
+                    <div class="asks-first">
+                        <div class="asks-first-circle">
+                            <span class="fa fa-search"></span>
+                        </div>
+                        <div class="asks-first-info">
+                            <h2>ARE YOU LOOKING FOR A Property?</h2>
+                            <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa
+                            </p>
+                        </div>
+                        <div class="asks-first-arrow">
+                            <a href="properties.html"><span class="fa fa-angle-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-10 col-sm-offset-1 col-xs-12 col-md-offset-0">
+                    <div class="asks-first">
+                        <div class="asks-first-circle">
+                            <span class="fa fa-usd"></span>
+                        </div>
+                        <div class="asks-first-info">
+                            <h2>DO YOU WANT TO SELL A Property?</h2>
+                            <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa
+                            </p>
+                        </div>
+                        <div class="asks-first-arrow">
+                            <a href="properties.html"><span class="fa fa-angle-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <p class="asks-call">QUESTIONS? CALL US : <span class="strong"> + 3-123- 424-5700</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer area-->
+    <div class="footer-area">
+
+        <div class=" footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                        <div class="single-footer">
+                            <h4>About us </h4>
+                            <div class="footer-title-line"></div>
+
+                            <img src="assets/img/footer-logo.png" alt="" class="wow pulse" data-wow-delay="1s">
+                            <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
+                            <ul class="footer-adress">
+                                <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
+                                <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
+                                <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                        <div class="single-footer">
+                            <h4>Quick links </h4>
+                            <div class="footer-title-line"></div>
+                            <ul class="footer-menu">
+                                <li><a href="properties.html">Properties</a> </li>
+                                <li><a href="#">Services</a> </li>
+                                <li><a href="submit-property.html">Submit property </a></li>
+                                <li><a href="contact.html">Contact us</a></li>
+                                <li><a href="faq.html">fqa</a> </li>
+                                <li><a href="faq.html">Terms </a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                        <div class="single-footer">
+                            <h4>Last News</h4>
+                            <div class="footer-title-line"></div>
+                            <ul class="footer-blog">
+                                <li>
+                                    <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
+                                        <a href="single.html">
+                                            <img src="assets/img/demo/small-proerty-2.jpg">
+                                        </a>
+                                        <span class="blg-date">12-12-2016</span>
+
+                                    </div>
+                                    <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
+                                        <h6> <a href="single.html">Add news functions </a></h6>
+                                        <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet,
+                                            nulla ...</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
+                                        <a href="single.html">
+                                            <img src="assets/img/demo/small-proerty-2.jpg">
+                                        </a>
+                                        <span class="blg-date">12-12-2016</span>
+
+                                    </div>
+                                    <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
+                                        <h6> <a href="single.html">Add news functions </a></h6>
+                                        <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet,
+                                            nulla ...</p>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
+                                        <a href="single.html">
+                                            <img src="assets/img/demo/small-proerty-2.jpg">
+                                        </a>
+                                        <span class="blg-date">12-12-2016</span>
+
+                                    </div>
+                                    <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
+                                        <h6> <a href="single.html">Add news functions </a></h6>
+                                        <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet,
+                                            nulla ...</p>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                        <div class="single-footer news-letter">
+                            <h4>Stay in touch</h4>
+                            <div class="footer-title-line"></div>
+                            <p>Lorem ipsum dolor sit amet, nulla suscipit similique quisquam molestias. Vel unde,
+                                blanditiis.</p>
+
+                            <form>
+                                <div class="input-group">
+                                    <input class="form-control" type="text" placeholder="E-mail ... ">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary subscribe" type="button"><i
+                                                class="pe-7s-paper-plane pe-2x"></i></button>
+                                    </span>
+                                </div>
+                                <!-- /input-group -->
+                            </form>
+
+                            <div class="social pull-right">
+                                <ul>
+                                    <li><a class="wow fadeInUp animated" href="https://twitter.com/kimarotec"><i
+                                                class="fa fa-twitter"></i></a></li>
+                                    <li><a class="wow fadeInUp animated" href="https://www.facebook.com/kimarotec"
+                                            data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a class="wow fadeInUp animated" href="https://plus.google.com/kimarotec"
+                                            data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec"
+                                            data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec"
+                                            data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copy text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="pull-left">
+                        <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016 </span>
+                    </div>
+                    <div class="bottom-menu pull-right">
+                        <ul>
+                            <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">Home</a></li>
+                            <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s">Property</a></li>
+                            <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">Faq</a></li>
+                            <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="assets/js/modernizr-2.6.2.min.js"></script>
+
+    <script src="assets/js/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/bootstrap-hover-dropdown.js"></script>
+
+    <script src="assets/js/easypiechart.min.js"></script>
+    <script src="assets/js/jquery.easypiechart.min.js"></script>
+
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/wow.js"></script>
+
+    <script src="assets/js/icheck.min.js"></script>
+    <script src="assets/js/price-range.js"></script>
+
+    <script src="assets/js/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 1,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+
+</body>
+
+</html>
