@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js">
+<html >
 <!--<![endif]-->
 
 <head>
@@ -239,7 +239,7 @@
     }
 </style>
 
-<body>
+<body style="width:100%;overflow:hidden">
 
     <div id="preloader">
         <div id="status">&nbsp;</div>
@@ -249,7 +249,7 @@
 
     <!--End top header -->
 
-    <nav class="navbar navbar-default ">
+    <nav class="navbar navbar-default" id="navb">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -381,7 +381,7 @@
     <!-- End of nav bar -->
 
     <div class="slider-area"
-        style="background-image: linear-gradient( 90deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );">
+        style="background-image: linear-gradient( 90deg, rgb(57 214 255)20.2%, rgba(110,123,251,1) 91.1% )">
         <div>
 
         </div>
@@ -397,11 +397,11 @@
                         <form id="msform" action="/details" method="POST" class="form-inline">
 
                             <div class="form-group">
-                                <input type="text" required autocomplete="on" minlength="3" class="form-control"
+                                <input type="text" oninput="sub()" required autocomplete="on" minlength="3" id="foodItem" class="form-control"
                                     name="foodItem" placeholder="Medicine Name">
                             </div>
                             <div class="form-group">
-                                <input type="text" required autocomplete="off" class="form-control" name="pin"
+                                <input type="number" autocomplete="off" class="form-control" name="pin"
                                     placeholder="Pin Code">
                             </div>
 
@@ -421,63 +421,115 @@
     <!-- Swiper JS -->
 
 
-    <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
-                    <h2>Deals Of The Day </h2>
-                    <p>Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu
-                        ultricies . </p>
+         <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                        <!-- /.feature title -->
+                        <h2>Medicomp Result Examples</h2>
+                        <!-- <p>Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies . </p> -->
+                    </div>
                 </div>
-            </div>
 
-         
-
-            <div class="row">
-                <div class="proerty-th">
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-
-
-                            <div class="col-sm-6 col-md-3 p0 swiper-slide">
-                                <div class="container">
-                                    <div class="card">
-                                        <div class="card--image">
-                                            <img src="data:image/jpeg;base64,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"
-                                                alt="image">
-                                        </div>
-                                        <div class="card--info info--1">
-                                            <span class="info--text">SPACIOUS</span>
-                                            <div class="icon">
-                                                <ion-icon name="add-outline"></ion-icon>
-                                            </div>
-                                            <div class="info--image">
-                                                <img src="https://source.unsplash.com/-HxIhfS_dUk" alt="info image">
-                                            </div>
-                                        </div>
-                                        <div class="card--info info--2">
-                                            <span class="info--text">ACCESSIBLE</span>
-                                            <div class="icon">
-                                                <ion-icon name="add-outline"></ion-icon>
-                                            </div>
-                                            <div class="info--image">
-                                                <img src="https://source.unsplash.com/-HxIhfS_dUk" alt="info image">
-                                            </div>
-                                        </div>
-                                    </div>
+                <div class="row">
+                    <div class="proerty-th">
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-two proerty-item">
+                                <div class="item-thumb">
+                                    <a href="property-1.html" ><img src="https://newassets.apollo247.com/pub/media/catalog/product/v/i/vic0426_1_.jpg"></a>
+                                </div>
+                                <div class="item-entry overflow">
+                                    <h5><a href="property-1.html" >VICKS VAPORUB XTRA STRONG, 50 ML
+                                    </a></h5>
+                                    <div class="dot-hr"></div>
+                                    <a href="https://www.apollopharmacy.in/otc/vicks-vaporub-xtra-strong-50ml">
+                                        <span class="pull-left"><b>Area :</b> Apollo </span>
+                                        <span class="proerty-price pull-right" style="color:#00ff00">₹170</span> <br>
+                                    </a>
+                                    <a href="https://pharmeasy.in/health-care/products/vicks-vaporub-xtra-strong-50-ml-3541384">
+                                        <span class="pull-left"><b>Area :</b> PharmEasy </span>
+                                        <span class="proerty-price pull-right">₹177.6</span> <br>
+                                    </a>
+                                    <a href="https://www.pulseplus.in/product/vicks-vaporub-xtra-song-50-ml-pc-52910">
+                                        <span class="pull-left"><b>Area :</b> PulsePlus </span>
+                                        <span class="proerty-price pull-right" style="color:red">₹185</span>
+                                    </a>
                                 </div>
                             </div>
-
-
-
                         </div>
+
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-two proerty-item">
+                                <div class="item-thumb">
+                                    <a href="property-1.html" ><img src="https://www.tabletshablet.com/wp-content/uploads/2021/06/Volini-Gel-15-gm-1.jpg"></a>
+                                </div>
+                                <div class="item-entry overflow">
+                                    <h5><a href="property-1.html" >VOLINI ACTIVE 15 GM
+                                    </a></h5>
+                                    <div class="dot-hr"></div>
+                                    <a href="https://www.myupchar.com/medicine/volini-activ-p37132663/gel-15gm-v234169">
+                                        <span class="pull-left"><b>Area :</b> MyUpChar </span>
+                                        <span class="proerty-price pull-right" style="color:#00ff00">₹59.6</span> <br>
+                                    </a>
+                                    <a href="https://www.tabletshablet.com/product/volini-gel-15-gm/">
+                                        <span class="pull-left"><b>Area :</b> TabletShablet </span>
+                                        <span class="proerty-price pull-right">₹65</span> <br>
+                                    </a>
+                                    <a href="https://www.pulseplus.in/product/volini-active-15-gm-pc-40168">
+                                        <span class="pull-left"><b>Area :</b> PulsePlus </span>
+                                        <span class="proerty-price pull-right" style="color:red">₹70</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-two proerty-item">
+                                <div class="item-thumb">
+                                    <a href="property-1.html" ><img src="https://www.netmeds.com/images/product-v1/600x600/825299/endoreg_tablet_14s_63763_0_1.jpg"></a>
+                                </div>
+                                <div class="item-entry overflow">
+                                    <h5><a href="property-1.html" >ENDOREG TABLET 14'S
+
+                                    </a></h5>
+                                    <div class="dot-hr"></div>
+                                    <a href="https://www.netmeds.com/prescriptions/endoreg-tablet-14-s">
+                                        <span class="pull-left"><b>Area :</b> Netmeds </span>
+                                        <span class="proerty-price pull-right" style="color:#00ff00">₹580</span> <br>
+                                    </a>
+                                    <a href="https://www.apollopharmacy.in/medicine/endoreg-2mg-tablet-14-s">
+                                        <span class="pull-left"><b>Area :</b> Apollo </span>
+                                        <span class="proerty-price pull-right">₹613.83</span> <br>
+                                    </a>
+                                    <a href="https://pharmeasy.in/online-medicine-order/endoreg-2mg-tablet-15259">
+                                        <span class="pull-left"><b>Area :</b> PharmEasy </span>
+                                        <span class="proerty-price pull-right" style="color:red">₹725</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-tree more-proerty text-center">
+                                <div class="item-tree-icon">
+                                    <i class="fa fa-th"></i>
+                                </div>
+                                <div class="more-entry overflow">
+                                    <h5><a href="property-1.html" >CAN'T DECIDE Where To Buy From? </a></h5>
+                                    <!-- <h5 class="tree-sub-ttl"><a href=""></a> Try Us</h5> -->
+                                   <a href="#navb">
+                                       <button class="btn border-btn more-black" value="All properties">Try Us</button>
+                                   </a>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-
-
                 </div>
             </div>
         </div>
-    </div>
+
 
     <!--Welcome area -->
     <div class="Welcome-area">
@@ -489,7 +541,7 @@
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                                     <!-- /.feature title -->
-                                    <h2>GARO ESTATE </h2>
+                                    <h2>MEDI COMP </h2>
                                 </div>
                             </div>
                         </div>
@@ -876,16 +928,15 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
     <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 1,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-    </script>
+   <script>
+    document.body.style.overflow='scroll'
+    function sub(){
+        console.log('called')
+        if((document.getElementById('foodItem').value).length>0){
+            document.getElementById('msform').submit();
+        }
+    }
+   </script>
 
 </body>
 
