@@ -474,38 +474,23 @@ extractDataOfApollo = async (url) => {
         const { data } = await axios.get(url)
 
         // Using cheerio to extract <a> tags
-        const $ = cheerio.load(data);
-        // console.log($.html());
+        const $ = cheerio.load(data,{xmlMode: false});
+        const apolloData=JSON.parse($('#__NEXT_DATA__').text());
+        console.log(url);
         var t, m;
         const offers=await getOffersOfApollo();
 
       
 
-        t = $('.PdpWeb_productDetails__3K6Dg').first().text();
-        if (t == '') {
-            t = $('.ProductCard_productName__2LhTY').first().text();
-        }
-
-        m = $('.MedicineInfoWeb_medicinePrice__ynSpV').first().text();
-        if (m == '') {
-            m = $('.ProductCard_priceGroup__Xriou').first().text();
-        }
-
-        if (m != '') {
-            if (m.includes(')')) {
-                m = m.split(')')[1];
-            }
-        }
-        if(m){
-            if(m.includes('₹')){
-                m=m.split('₹')[1];
-            }
+      m=apolloData.props.pageProps.productDetails.productdp[0].special_price;
+        if(!m){
+            m=apolloData.props.pageProps.productDetails.productdp[0].price;
         }
 
         return {
             name: 'Apollo',
-            item: t,
-            link: "https://apollopharmacy.in"+$('.ProductCard_productCardGrid__rpg72 a').first().attr('href'),
+            item: apolloData.props.pageProps.url_key,
+            link: url,
             imgLink: $('.ProductCard_bigAvatar__2D8AB img').attr('src'),
             price: m,
             offer:offers,
@@ -526,18 +511,23 @@ extractDataOfHealthmug = async (url) => {
         const { data } = await axios.get(url)
 
         // Using cheerio to extract <a> tags
-        const $ = cheerio.load(data);
+        const $ = cheerio.load(data,{xmlParse:false});
         // console.log($.html());
-        var a = $('script[type=application/ld+json]')[1];
-        a = JSON.parse(a);
-        console.log(a);
+        var healthMugData;
+        $("script[type=application/ld+json]").map(function(i,v){
+              if(i==1){
+                healthMugData=JSON.parse($(this).text());
+              }
+        });
+
 
         return {
             name: 'Healthmug',
-            item: a.name,
+            item: healthMugData.name,
             link: url,
-            // item: item,
-            price: $('.price-area-txt').text(),
+            imgLink:healthMugData.image,
+            price: healthMugData.offers.price,
+            offer:'',
         };
 
     } catch (error) {
@@ -883,13 +873,14 @@ app.post('/result', async(req, res) => {
     // https://www.ask.com/web?q=site:apollopharmacy.in%20crocin%20advance&ad=dirN&o=0
     const urlForPharmEasy = `https://in.search.yahoo.com/search;_ylt=?p=site:pharmeasy.in+${nameOfMed}&ad=dirN&o=0`;
     const urlForNetMeds = `https://in.search.yahoo.com/search;_ylt=?p=site:netmeds.com+${nameOfMed}&ad=dirN&o=0`;
-    const urlForApollo = `https://www.apollopharmacy.in/search-medicines/${nameOfMed}`;
+    const urlForApollo = `https://in.search.yahoo.com/search;_ylt=?p=site:apollopharmacy.in+${nameOfMed}&ad=dirN&o=0`;
     // const urlForHealthmug = `https://www.healthmug.com/search?keywords=${nameOfMed}`;
     const urlForTata = `https://in.search.yahoo.com/search;_ylt=?p=site:1mg.com+${nameOfMed}&ad=dirN&o=0`;
     const urlForOBP = `https://in.search.yahoo.com/search;_ylt=?p=site:tabletshablet.com+${nameOfMed}&ad=dirN&o=0`;
     const urlFormedplusMart = `https://in.search.yahoo.com/search;_ylt=?p=site:pulseplus.in+${nameOfMed}&ad=dirN&o=0`;
     const urlForMyUpChar = `https://in.search.yahoo.com/search;_ylt=?p=site:myupchar.com+${nameOfMed}&ad=dirN&o=0`;
     const urlForOmChemist = `https://omhealthcart.com/catalogsearch/result/?q=${nameOfMed}`
+    const urlForHealthmug = `https://in.search.yahoo.com/search;_ylt=?p=site:healthmug.com+${nameOfMed}&ad=dirN&o=0`
    
     const items = [urlForNetMeds, urlForPharmEasy, urlForTata, urlForOBP, urlFormedplusMart, urlForMyUpChar];
     const item = [],
@@ -1038,7 +1029,8 @@ app.post('/result', async(req, res) => {
     //     await extractLinkFromyahoo(urlFormedplusMart),
     // )
     await Promise.all([extractLinkFromyahoo(urlForNetMeds), extractLinkFromyahoo(urlForPharmEasy),extractLinkFromyahoo(urlForOBP),
-        extractLinkFromyahoo(urlFormedplusMart),extractLinkFromyahoo(urlForMyUpChar)])
+        extractLinkFromyahoo(urlFormedplusMart),extractLinkFromyahoo(urlForMyUpChar),
+    extractLinkFromyahoo(urlForHealthmug),extractLinkFromyahoo(urlForApollo)])
         .then(await axios.spread(async (...responses) => {
             // console.log(...responses);
 
@@ -1047,10 +1039,13 @@ app.post('/result', async(req, res) => {
             item.push(responses[2])
             item.push(responses[3])
             item.push(responses[4])
+            item.push(responses[5])
+            item.push(responses[6])
 
             console.log(item);
             await Promise.all([extractDataOfNetMeds(item[0]), extractDataOfPharmEasy(item[1]),
-            extractDataOfOBP(item[2]), extractDataOfmedplusMart(req.body.foodLink?req.body.foodLink:item[3]), extractDataOfMyUpChar(item[4]),extractDataOfApollo(urlForApollo)])
+            extractDataOfOBP(item[2]), extractDataOfmedplusMart(req.body.foodLink?req.body.foodLink:item[3]), 
+            extractDataOfMyUpChar(item[4]),extractDataOfHealthmug(item[5]),extractDataOfApollo(item[6])])
                 .then(await axios.spread(async (...responses) => {
                     // console.log(...responses);
         
@@ -1060,6 +1055,7 @@ app.post('/result', async(req, res) => {
                     final.push(responses[3])
                     final.push(responses[4])
                     final.push(responses[5])
+                    final.push(responses[6])
                     await extractSubsfApollo(final[final.length-1].link,final);
         
                 }))
@@ -1078,7 +1074,7 @@ app.post('/result', async(req, res) => {
 
 });
 
-const port = process.env.PORT || 5000 // Port we will listen on
+const port = process.env.PORT || 2000 // Port we will listen on
 
 // Function to listen on the port
 app.listen(port, () => console.log(`This app is listening on port ${port}`));
