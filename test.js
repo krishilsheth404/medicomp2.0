@@ -179,7 +179,7 @@ app.post('/description', async(req, res) => {
         const PriceOfSubs=[];
         const ImgLinkOfSubs=[];
         // Using cheerio to extract <a> tags
-       
+         
         const subs=[];
 
         $('.ProductSubstituteWidget_productTitle__3-F3o').each(function(i, elm) {
