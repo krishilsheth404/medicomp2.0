@@ -179,7 +179,7 @@ app.post('/description', async(req, res) => {
         const PriceOfSubs=[];
         const ImgLinkOfSubs=[];
         // Using cheerio to extract <a> tags
-         
+       
         const subs=[];
 
         $('.ProductSubstituteWidget_productTitle__3-F3o').each(function(i, elm) {
@@ -326,7 +326,7 @@ extractLinkFromyahoo = async (url) => {
         const $ = cheerio.load(data);
         // console.log($.html());
 
-        rawUrl = $('li[class=first] .compTitle h3 a').first().attr('href');
+        const rawUrl = $('li .compTitle h3 a').first().attr('href');
         console.log(rawUrl);
         if (rawUrl != undefined) {
             return rawUrl
@@ -537,21 +537,27 @@ extractDataOfHealthmug = async (url) => {
         return {};
     }
 };
-extractDataOfOmChemist = async (url) => {
+extractDataOf3Meds = async (url) => {
     try {
         // Fetching HTML
         const { data } = await axios.get(url)
 
         // Using cheerio to extract <a> tags
         const $ = cheerio.load(data);
+        const offers=[];
+        $('.AdditionalOffers ul li').map((i, elm) => {
+            offers.push($(elm).text());
+         });
+         var p=$('.actualrate').text().trim();
+         p=p.split('Rs.')[1];
 
         return {
-            name: 'Om Healthcart',
-            item: $('.product-name a').first().text().trim(),
-            link: $('.product-name a').first().attr('href').trim(),
-            imgLink: $('.product-image img').first().attr('src').trim(),
-            price: $('.regular-price').first().text().trim(),
-
+            name: '3 Meds',
+            item: $('h1').text(),
+            link: url,
+            imgLink: $('.productimg img').first().attr('src'),
+            price:p,
+            offer:offers,
         };
 
     } catch (error) {
@@ -561,6 +567,8 @@ extractDataOfOmChemist = async (url) => {
         return {};
     }
 };
+
+
 extractDataOfTata = async (url) => {
     try {
         // Fetching HTML
@@ -787,21 +795,27 @@ extractDataOfOBP = async (url) => {
         return {};
     }
 };
-extractDataOfIndiMedo = async (url) => {
+
+extractDataOfPP= async (url) => {
     try {
         // Fetching HTML
         const { data } = await axios.get(url)
 
         // Using cheerio to extract <a> tags
         const $ = cheerio.load(data);
+        var dataOfPP={};
+        $("script[type=application/ld+json]").map(function(i,v){
+            dataOfPP=JSON.parse($(this).text());
+    });
         // console.log($.html());
 
         return {
-            name: 'IndiMedo',
-            item: $('.tt-old-details-1-1-1 h3').text(),
+            name: 'Pasumai Pharmacy',
+            item:dataOfPP.name,
             link: url,
-            imgLink: $('.xzoom-container img').attr('src'),
-            price: $('.regular-price span').first().text(),
+            imgLink: dataOfPP.image,
+            price: dataOfPP.offers.price,
+            offer:'',
         };
 
     } catch (error) {
@@ -824,6 +838,7 @@ app.post('/result', async(req, res) => {
 
     const nameOfMed = req.body.foodItem + '\n';
     console.log(req.body.foodLink);
+    // console.log('Name')
     // try {
     //     let date_ob = new Date();
 
@@ -879,10 +894,10 @@ app.post('/result', async(req, res) => {
     const urlForOBP = `https://in.search.yahoo.com/search;_ylt=?p=site:tabletshablet.com+${nameOfMed}&ad=dirN&o=0`;
     const urlFormedplusMart = `https://in.search.yahoo.com/search;_ylt=?p=site:pulseplus.in+${nameOfMed}&ad=dirN&o=0`;
     const urlForMyUpChar = `https://in.search.yahoo.com/search;_ylt=?p=site:myupchar.com+${nameOfMed}&ad=dirN&o=0`;
-    const urlForOmChemist = `https://omhealthcart.com/catalogsearch/result/?q=${nameOfMed}`
-    const urlForHealthmug = `https://in.search.yahoo.com/search;_ylt=?p=site:healthmug.com+${nameOfMed}&ad=dirN&o=0`
+    const urlFor3Meds = `https://in.search.yahoo.com/search;_ylt=?p=site:3meds.com+${nameOfMed}&ad=dirN&o=0`
+    const urlForHealthmug = `https://in.search.yahoo.com/search;_ylt=?p=site:healthmug.com+${nameOfMed}&ad=dirN&o=0`;
+    const urlForPP = `https://in.search.yahoo.com/search;_ylt=?p=site:pasumaipharmacy.com+${nameOfMed}&ad=dirN&o=0`;
    
-    const items = [urlForNetMeds, urlForPharmEasy, urlForTata, urlForOBP, urlFormedplusMart, urlForMyUpChar];
     const item = [],
         final = [];
     // getLinks = async() => {
@@ -1029,8 +1044,8 @@ app.post('/result', async(req, res) => {
     //     await extractLinkFromyahoo(urlFormedplusMart),
     // )
     await Promise.all([extractLinkFromyahoo(urlForNetMeds), extractLinkFromyahoo(urlForPharmEasy),extractLinkFromyahoo(urlForOBP),
-        extractLinkFromyahoo(urlFormedplusMart),extractLinkFromyahoo(urlForMyUpChar),
-    extractLinkFromyahoo(urlForHealthmug),extractLinkFromyahoo(urlForApollo)])
+        extractLinkFromyahoo(urlFormedplusMart),extractLinkFromyahoo(urlForMyUpChar),extractLinkFromyahoo(urlForHealthmug),
+        extractLinkFromyahoo(urlFor3Meds),extractLinkFromyahoo(urlForPP),extractLinkFromyahoo(urlForApollo)])
         .then(await axios.spread(async (...responses) => {
             // console.log(...responses);
 
@@ -1041,11 +1056,14 @@ app.post('/result', async(req, res) => {
             item.push(responses[4])
             item.push(responses[5])
             item.push(responses[6])
+            item.push(responses[7])
+            item.push(responses[8])
 
             console.log(item);
-            await Promise.all([extractDataOfNetMeds(item[0]), extractDataOfPharmEasy(item[1]),
-            extractDataOfOBP(item[2]), extractDataOfmedplusMart(req.body.foodLink?req.body.foodLink:item[3]), 
-            extractDataOfMyUpChar(item[4]),extractDataOfHealthmug(item[5]),extractDataOfApollo(item[6])])
+            await Promise.all([extractDataOfNetMeds(item[0]), extractDataOfPharmEasy(item[1]),extractDataOfOBP(item[2]), 
+            extractDataOfmedplusMart(req.body.foodLink?req.body.foodLink:item[3]), extractDataOfMyUpChar(item[4]),
+            extractDataOfHealthmug(item[5]),extractDataOf3Meds(item[6]),extractDataOfPP(item[7]),
+            extractDataOfApollo(item[8])])
                 .then(await axios.spread(async (...responses) => {
                     // console.log(...responses);
         
@@ -1056,7 +1074,9 @@ app.post('/result', async(req, res) => {
                     final.push(responses[4])
                     final.push(responses[5])
                     final.push(responses[6])
-                    await extractSubsfApollo(final[final.length-1].link,final);
+                    final.push(responses[7])
+                    final.push(responses[8])
+                    // await extractSubsfApollo(final[final.length-1].link,final);
         
                 }))
                 final.sort((a, b) => a.price - b.price); // b - a for reverse sort
