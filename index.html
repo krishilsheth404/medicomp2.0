@@ -420,7 +420,13 @@
         </div>
     </div>
 
-    <!-- property area -->
+    <center>
+
+        <div id="styco" style="height:auto;background-image: linear-gradient( 90deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );;margin-top: -50px;">
+            
+        </div>
+        <!-- property area -->
+    </center>
 
 
     <!-- Swiper JS -->
@@ -933,11 +939,37 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
     <!-- Initialize Swiper -->
+    <style>
+        @keyframes skel {
+            0%{
+                background:darkgray;
+                color: darkgray;
+            }
+            100%{
+                background:white;
+                color: white;
+            }
+        }
+       
+    </style>
+   
    <script>
     document.body.style.overflow='scroll'
     function sub(){
         console.log('called')
-        if((document.getElementById('foodItem').value).length>0){
+        for(var i=0;i<10;i++){
+       var e =document.createElement('div');
+       e.className='search-form';
+       e.id=`sf${i}`;
+       e.style="height:150px;box-shadow:1px 1px 10px gray;width: 83%;;margin-bottom: 20px;background:white";
+       document.getElementById('styco').appendChild(e);
+    
+       var innerdiv=document.createElement('h3');
+       innerdiv.innerText="_________________________________";
+       innerdiv.style="background:darkgray;animation:skel 2s linear infinite"
+       document.getElementById(`sf${i}`).appendChild(innerdiv);
+    }
+        if((document.getElementById('foodItem').value.trim()).length>0){
             document.getElementById('msform').submit();
         }
     }
