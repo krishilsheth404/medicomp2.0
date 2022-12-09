@@ -70,12 +70,18 @@
     background-position:center;
     margin:-100px 0 0 -100px; 
 }
+#bckgnd{
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='250' preserveAspectRatio='none' viewBox='0 0 1440 250'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1015%26quot%3b)' fill='none'%3e%3crect width='1440' height='250' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M28 250L278 0L525.5 0L275.5 250z' fill='url(%23SvgjsLinearGradient1016)'%3e%3c/path%3e%3cpath d='M262.6 250L512.6 0L706.1 0L456.1 250z' fill='url(%23SvgjsLinearGradient1016)'%3e%3c/path%3e%3cpath d='M480.20000000000005 250L730.2 0L992.7 0L742.7 250z' fill='url(%23SvgjsLinearGradient1016)'%3e%3c/path%3e%3cpath d='M717.8000000000001 250L967.8000000000001 0L1113.3000000000002 0L863.3000000000001 250z' fill='url(%23SvgjsLinearGradient1016)'%3e%3c/path%3e%3cpath d='M1410 250L1160 0L906.5 0L1156.5 250z' fill='url(%23SvgjsLinearGradient1017)'%3e%3c/path%3e%3cpath d='M1164.4 250L914.4000000000001 0L857.4000000000001 0L1107.4 250z' fill='url(%23SvgjsLinearGradient1017)'%3e%3c/path%3e%3cpath d='M933.8 250L683.8 0L505.29999999999995 0L755.3 250z' fill='url(%23SvgjsLinearGradient1017)'%3e%3c/path%3e%3cpath d='M716.1999999999999 250L466.19999999999993 0L326.69999999999993 0L576.6999999999999 250z' fill='url(%23SvgjsLinearGradient1017)'%3e%3c/path%3e%3cpath d='M1216.3121772937009 250L1440 26.312177293700785L1440 250z' fill='url(%23SvgjsLinearGradient1016)'%3e%3c/path%3e%3cpath d='M0 250L223.68782270629922 250L 0 26.312177293700785z' fill='url(%23SvgjsLinearGradient1017)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1015'%3e%3crect width='1440' height='250' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient1016'%3e%3cstop stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='100%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient1017'%3e%3cstop stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+       background-position: bottom;
+       background-repeat:no-repeat;
+       background-size: cover;
+    }
     </style>
 <body>
 
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div id="status">&nbsp;</div>
-    </div>
+    </div> -->
     <!-- Body content -->
 
    
@@ -210,7 +216,7 @@
     </nav>
     <!-- End of nav bar -->
 
-    <div class="slider-area" style="background-image: linear-gradient( 90deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );">
+    <div class="slider-area" id="bckgnd">
         <div  >
 
         </div>
@@ -224,11 +230,11 @@
                         <form id="msform" action="/details" method="POST" class="form-inline">
 
                             <div class="form-group">
-                                <input type="text" class="form-control" name="foodItem" placeholder="Medicine Name"
+                                <input type="text"  oninput="filter(this.value)" class="form-control" name="foodItem" placeholder="Medicine Name"
                                     value="<%=final[final.length-1]%>">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="pin" placeholder="Pin Code" value="<%=final[final.length-2]%>">
+                                <input type="number" class="form-control" name="pin" placeholder="Pin Code" value="<%=final[final.length-2]%>">
                             </div>
 
                            
@@ -253,13 +259,13 @@
     <div class="styco" style="height:auto;background-image: linear-gradient( 90deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );;margin-top: -50px;">
 
         <% for(var i=0; i < final.length-2; i++) { %>
-            <form id="msform" action="/result" method="POST">
+            <form id="msform" action="/result" method="POST" class="searchString<%=i+1%> <%=final[i].name.replaceAll(' ','')%> ss">
                 <div style="box-shadow:1px 1px 10px gray;width: 83%;;margin-bottom: 20px;">
                     <div class="search-form wow pulse animated animated"  data-wow-delay="0.8s"
                     style="visibility: visible;animation-delay: 0.8s;animation-name: pulse">
                     <!-- <p style="margin: 0px;"><%=final[i]%></p> -->
-                    <input type="text" id="foodItem" name="foodItem"  style="visibility:visible;text-align: center;" value="<%=final[i].name%>">
-                    <input type="text" id="foodLink" name="foodLink"  style="visibility:hidden;text-align: center;height: 0px;width: 0px;" value="<%=final[i].link%>">
+                    <input type="text" disabled id="foodItem" name="foodItem"  style="visibility:visible;text-align: center;background-color: transparent;" value="<%=final[i].name%>">
+                    <input type="text" disabled id="foodLink" name="foodLink"  style="visibility:hidden;text-align: center;height: 0px;width: 0px;" value="<%=final[i].link%>">
                 </div>
                 <input type="submit" onclick="showLoading()" value="Medicomp" id="smtbtn">
             </div>
@@ -782,6 +788,31 @@
         {
             document.getElementById('preloader').style.display='block';
             document.getElementById('status').style.display='block';
+        }
+        function filter(data){
+            const a=document.querySelectorAll('.ss');
+            for(var i=0;i<a.length;i++){
+                // console.log(a[i].classList[1])
+                // console.log(data.replaceAll(' ',''));
+
+                data=data.replaceAll(' ','');
+                data=data.replaceAll('.','');
+
+                if((a[i].classList[1].replaceAll('.','').toLowerCase()).includes(data.toLowerCase())){
+                    // console.log(data.replaceAll(' ',''));
+                    console.log(a[i].classList[0])
+                    document.querySelector("."+a[i].classList[0]).style.display='block';
+                    // document.querySelector("."+a[i].classList[0]).style.display='block';
+                }else{
+                    // console.log(a[i].classList[0])
+                    document.querySelector("."+a[i].classList[0]).style.display='none';
+                    // document.querySelector("."+a[i].classList[1]).style.display='none';
+                }
+                
+
+                console.log('\n');
+            }
+
         }
     </script>
 
