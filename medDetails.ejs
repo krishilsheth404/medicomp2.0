@@ -79,9 +79,9 @@
     </style>
 <body>
 
-    <!-- <div id="preloader">
+    <div id="preloader">
         <div id="status">&nbsp;</div>
-    </div> -->
+    </div>
     <!-- Body content -->
 
    
@@ -230,12 +230,12 @@
                         <form id="msform" action="/details" method="POST" class="form-inline">
 
                             <div class="form-group">
-                                <input type="text"  oninput="filter(this.value)" class="form-control" name="foodItem" placeholder="Medicine Name"
+                                <input type="text" autocomplete="off"  class="form-control" name="foodItem" placeholder="Medicine Name"
                                     value="<%=final[final.length-1]%>">
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <input type="number" class="form-control" name="pin" placeholder="Pin Code" value="<%=final[final.length-2]%>">
-                            </div>
+                            </div> -->
 
                            
 
@@ -261,10 +261,11 @@
         <% for(var i=0; i < final.length-2; i++) { %>
             <form id="msform" action="/result" method="POST" class="searchString<%=i+1%> <%=final[i].name.replaceAll(' ','')%> ss">
                 <div style="box-shadow:1px 1px 10px gray;width: 83%;;margin-bottom: 20px;">
-                    <div class="search-form wow pulse animated animated"  data-wow-delay="0.8s"
+                    <div class="search-form "  data-wow-delay="0.8s"
                     style="visibility: visible;animation-delay: 0.8s;animation-name: pulse">
                     <!-- <p style="margin: 0px;"><%=final[i]%></p> -->
-                    <input type="text" disabled id="foodItem" name="foodItem"  style="visibility:visible;text-align: center;background-color: transparent;" value="<%=final[i].name%>">
+                    <h3><%=final[i].name%></h3>
+                    <input type="text"  id="foodItem" name="foodItem"  style="visibility:hidden;text-align: center;background-color: transparent;" value="<%=final[i].name%>">
                     <input type="text" disabled id="foodLink" name="foodLink"  style="visibility:hidden;text-align: center;height: 0px;width: 0px;" value="<%=final[i].link%>">
                 </div>
                 <input type="submit" onclick="showLoading()" value="Medicomp" id="smtbtn">

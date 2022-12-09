@@ -402,13 +402,13 @@
                         <form id="msform" action="/details" method="POST" class="form-inline">
 
                             <div class="form-group">
-                                <input type="text" oninput="sub()" required  minlength="3" id="foodItem" class="form-control"
+                                <input type="text" required autocomplete="off" minlength="3" id="foodItem" class="form-control"
                                     name="foodItem" placeholder="Medicine Name">
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <input type="number" autocomplete="off" class="form-control" name="pin"
                                     placeholder="Pin Code">
-                            </div>
+                            </div> -->
 
                             <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>
 
@@ -957,19 +957,22 @@
     document.body.style.overflow='scroll'
     function sub(){
         console.log('called')
-        for(var i=0;i<10;i++){
-       var e =document.createElement('div');
-       e.className='search-form';
-       e.id=`sf${i}`;
-       e.style="height:150px;box-shadow:1px 1px 10px gray;width: 83%;;margin-bottom: 20px;background:white";
-       document.getElementById('styco').appendChild(e);
-    
-       var innerdiv=document.createElement('h3');
-       innerdiv.innerText="_________________________________";
-       innerdiv.style="background:darkgray;animation:skel 2s linear infinite"
-       document.getElementById(`sf${i}`).appendChild(innerdiv);
-    }
-        if((document.getElementById('foodItem').value.trim()).length>0){
+        var c=0;
+
+        if((document.getElementById('foodItem').value.trim()).length>2 &&c==0){
+            for(var i=0;i<10;i++){
+           var e =document.createElement('div');
+           e.className='search-form';
+           e.id=`sf${i}`;
+           e.style="height:150px;box-shadow:1px 1px 10px gray;width: 83%;;margin-bottom: 20px;background:white";
+           document.getElementById('styco').appendChild(e);
+        
+           var innerdiv=document.createElement('h3');
+           innerdiv.innerText="_________________________________";
+           innerdiv.style="background:darkgray;animation:skel 2s linear infinite"
+           document.getElementById(`sf${i}`).appendChild(innerdiv);
+        }
+        c++;
             document.getElementById('msform').submit();
         }
     }
