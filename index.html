@@ -399,7 +399,7 @@
                     <div class="search-form wow pulse animated" data-wow-delay="0.8s"
                         style="visibility: visible; animation-delay: 0.8s; animation-name: pulse;">
 
-                        <form id="msform" action="/details" method="POST" class="form-inline">
+                        <form id="msform" onsubmit="sub()" action="/details" method="POST" class="form-inline">
 
                             <div class="form-group">
                                 <input type="text" required autocomplete="off" minlength="3" id="foodItem" class="form-control"
@@ -968,7 +968,7 @@
            document.getElementById('styco').appendChild(e);
         
            var innerdiv=document.createElement('h3');
-           innerdiv.innerText="_________________________________";
+           innerdiv.innerText="___";
            innerdiv.style="background:darkgray;animation:skel 2s linear infinite"
            document.getElementById(`sf${i}`).appendChild(innerdiv);
         }
