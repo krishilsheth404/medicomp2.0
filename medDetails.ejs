@@ -42,10 +42,13 @@
     .styco::-webkit-scrollbar {
   display: none;
     }
+    #smtbtn{
+        background-color: rgb(37, 37, 37);color: white;
+    }
     #smtbtn:hover{
-      background-color: rgb(104, 104, 104);
+      background-color: rgb(169, 169, 169);
       transition: all 1s;
-      color: white;
+      color: rgb(0, 0, 0);
     }
     #preloader {
     position:fixed;
@@ -71,11 +74,20 @@
     margin:-100px 0 0 -100px; 
 }
 #bckgnd{
-        background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+        background-image: linear-gradient(to right, #52c8db, #dcfaff);
 
        background-position: bottom;
        background-repeat:no-repeat;
        background-size: cover;
+    }
+    #mainmar{
+        color:white;margin-bottom: 130px;
+    }
+    @media screen and (max-width:700px) {
+        
+        #mainmar{
+            color:white;margin-bottom: 80px;
+        }
     }
     </style>
 <body>
@@ -230,12 +242,12 @@
         <div class="slider-content">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-                    <h2 style="color:white;margin-bottom: 130px;">India's 1<sup>st</sup> Platform To Compare Medicine Prices</h2>
+                    <h2 id="mainmar">India's 1<sup>st</sup> Platform To Compare Medicine Prices</h2>
                     <!-- <p style="color: white;text-shadow: 2px 2px 10px white;font-size: 20px">Get Live Prices Of Medicines
                         From Different Sites Here Within 5-10 seconds.</p> -->
                     <div class="search-form wow pulse animated" data-wow-delay="0.8s"
-                        style="visibility: visible; animation-delay: 0.8s; animation-name: pulse;background: rgba( 255, 255, 255, 0.2 );
-                        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                        style="visibility: visible; animation-delay: 0.8s; animation-name: pulse;background: white;
+                        box-shadow:rgb(0 0 0 / 37%) 0px 8px 32px 0px;
                         backdrop-filter: blur( 6.5px );
                         -webkit-backdrop-filter: blur( 6.5px );
                         border-radius: 10px;
@@ -245,7 +257,7 @@
 
                             <div class="form-group">
                                 <input type="text" required autocomplete="off" style="padding: 30px 15px;
-                                font-size: 20px;
+                                font-size: 20px;color: white;background-color: white;color: black;
                                 width: 100%;" minlength="3" id="foodItem" class="form-control"
                                     name="foodItem" placeholder="Medicine Name" value="<%=final[final.length-1]%>">
                             </div>
@@ -254,7 +266,7 @@
                                     placeholder="Pin Code">
                             </div> -->
 
-                            <button style="padding: 30px 30px;
+                            <button style="padding: 30px 30px;background-color: black;
                             position: relative;" class="btn search-btn" type="submit"><i style="position: absolute;
     top: 50%;
     left: 50%;
@@ -269,21 +281,16 @@
     </div>
 
     <center>
-    <div class="styco" style="height:auto;background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);">
+    <div class="styco" style="height:auto;background-image: linear-gradient(to right, #52c8db, #dcfaff);">
 
         <% for(var i=0; i < final.length-2; i++) { %>
             <form id="msform" action="/result" method="POST" class="searchString<%=i+1%> <%=final[i].name.replaceAll(' ','')%> ss">
-                <div style="box-shadow:1px 1px 10px gray;width: 83%;;margin-bottom: 20px;background: rgba( 255, 255, 255, 0.65 );
-                box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-                backdrop-filter: blur( 6.5px );
-                -webkit-backdrop-filter: blur( 6.5px );
-                border-radius: 10px;
-                border: 1px solid rgba( 255, 255, 255, 0.18 );">
+                <div style="width: 83%;margin-bottom: 20px;background:white;color: black;">
                     <div class="search-form "  data-wow-delay="0.8s"
                     style="visibility: visible;animation-delay: 0.8s;animation-name: pulse">
                     <!-- <p style="margin: 0px;"><%=final[i]%></p> -->
                     <h4><%=final[i].name%></h4>
-                    <input type="text"  id="foodItem" name="foodItem"  style="visibility:hidden;text-align: center;background-color: transparent;" value="<%=final[i].name%>">
+                    <input type="text"  id="foodItem" name="foodItem"  style="visibility:hidden;text-align: center;background-color: white;color: black;" value="<%=final[i].name%>">
                     <input type="text" disabled id="foodLink" name="foodLink"  style="display: none;text-align: center;height: 0px;width: 0px;" value="<%=final[i].link%>">
                 </div>
                 <input type="submit" onclick="showLoading()" value="Medicomp" id="smtbtn">
