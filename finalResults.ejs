@@ -57,10 +57,9 @@
 }
         </style>
 
-        <div id="preloader">
+        <!-- <div id="preloader">
             <div id="status">&nbsp;</div>
-        </div>
-        <!-- Body content -->
+        </div> -->
 
     
 
@@ -264,11 +263,8 @@
                                                 </div>
                                                 
                                                 <div class="item-entry overflow">
-                                                    <% if(final[i].item) {%>
                                                         <h5><a href="<%=final[i].link%>"> <%=final[i].item%> </a></h5>
-                                                        <%}else{%>
-                                                            <h5><a href="<%=final[i].link%>"> <%=globalUrlForImg%> </a></h5>
-                                                                <%}%>
+                                                        
                                                         <div class="dot-hr"></div>
                                                         <span class="pull-left " style="font-weight:bold"><b> Area :</b> <%=final[i].name%> </span>
                                                       

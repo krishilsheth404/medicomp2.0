@@ -238,7 +238,8 @@
         transform: scale(1.1);
     }
     #bckgnd{
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='250' preserveAspectRatio='none' viewBox='0 0 1440 250'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1015%26quot%3b)' fill='none'%3e%3crect width='1440' height='250' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M28 250L278 0L525.5 0L275.5 250z' fill='url(%23SvgjsLinearGradient1016)'%3e%3c/path%3e%3cpath d='M262.6 250L512.6 0L706.1 0L456.1 250z' fill='url(%23SvgjsLinearGradient1016)'%3e%3c/path%3e%3cpath d='M480.20000000000005 250L730.2 0L992.7 0L742.7 250z' fill='url(%23SvgjsLinearGradient1016)'%3e%3c/path%3e%3cpath d='M717.8000000000001 250L967.8000000000001 0L1113.3000000000002 0L863.3000000000001 250z' fill='url(%23SvgjsLinearGradient1016)'%3e%3c/path%3e%3cpath d='M1410 250L1160 0L906.5 0L1156.5 250z' fill='url(%23SvgjsLinearGradient1017)'%3e%3c/path%3e%3cpath d='M1164.4 250L914.4000000000001 0L857.4000000000001 0L1107.4 250z' fill='url(%23SvgjsLinearGradient1017)'%3e%3c/path%3e%3cpath d='M933.8 250L683.8 0L505.29999999999995 0L755.3 250z' fill='url(%23SvgjsLinearGradient1017)'%3e%3c/path%3e%3cpath d='M716.1999999999999 250L466.19999999999993 0L326.69999999999993 0L576.6999999999999 250z' fill='url(%23SvgjsLinearGradient1017)'%3e%3c/path%3e%3cpath d='M1216.3121772937009 250L1440 26.312177293700785L1440 250z' fill='url(%23SvgjsLinearGradient1016)'%3e%3c/path%3e%3cpath d='M0 250L223.68782270629922 250L 0 26.312177293700785z' fill='url(%23SvgjsLinearGradient1017)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1015'%3e%3crect width='1440' height='250' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient1016'%3e%3cstop stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='100%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient1017'%3e%3cstop stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+        background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+
        background-position: bottom;
        background-repeat:no-repeat;
        background-size: cover;
@@ -265,7 +266,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="medaz.html"><img src="assets/img/logo.png" alt=""></a>
+                <a class="navbar-brand" href="medaz.html">
+                    <svg style="    width: 5rem;
+                    height: 8rem;
+                    position: relative;
+                    top: -2.5rem;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16.49a.75.75 0 0 1-.75-.75v-8a.75.75 0 1 1 1.5 0v8a.75.75 0 0 1-.75.75Z" fill="#000"/><path d="M16 12.49H8A.75.75 0 0 1 8 11h8a.75.75 0 1 1 0 1.5v-.01Z" fill="#000"/><path d="M12 21.44a.75.75 0 0 1-.38-.1l-7.75-4.47a.77.77 0 0 1-.37-.65V7.27a.74.74 0 0 1 .37-.65l7.75-4.48a.77.77 0 0 1 .75 0l7.75 4.48a.73.73 0 0 1 .38.65v9a.76.76 0 0 1-.38.65l-7.75 4.47a.69.69 0 0 1-.37.05Zm-7-5.66 7 4 7-4V7.7l-7-4-7 4v8.08Z" fill="#000"/></svg>
+
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -393,16 +400,23 @@
         <div class="slider-content">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-                    <h2 style="color:white">India's 1<sup>st</sup> Platform To Compare Medicine Prices</h2>
-                    <p style="color: white;text-shadow: 2px 2px 10px white;font-size: 20px">Get Live Prices Of Medicines
-                        From Different Sites Here Within 5-10 seconds.</p>
+                    <h2 style="color:white;margin-bottom: 130px;">India's 1<sup>st</sup> Platform To Compare Medicine Prices</h2>
+                    <!-- <p style="color: white;text-shadow: 2px 2px 10px white;font-size: 20px">Get Live Prices Of Medicines
+                        From Different Sites Here Within 5-10 seconds.</p> -->
                     <div class="search-form wow pulse animated" data-wow-delay="0.8s"
-                        style="visibility: visible; animation-delay: 0.8s; animation-name: pulse;">
+                        style="visibility: visible; animation-delay: 0.8s; animation-name: pulse;background: rgba( 255, 255, 255, 0.2 );
+                        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                        backdrop-filter: blur( 6.5px );
+                        -webkit-backdrop-filter: blur( 6.5px );
+                        border-radius: 10px;
+                        border: 1px solid rgba( 255, 255, 255, 0.18 );">
 
                         <form id="msform" onsubmit="sub()" action="/details" method="POST" class="form-inline">
 
                             <div class="form-group">
-                                <input type="text" required autocomplete="off" minlength="3" id="foodItem" class="form-control"
+                                <input type="text" required autocomplete="off" style="padding: 30px 15px;
+                                font-size: 20px;
+                                width: 100%;" minlength="3" id="foodItem" class="form-control"
                                     name="foodItem" placeholder="Medicine Name">
                             </div>
                             <!-- <div class="form-group">
@@ -410,7 +424,11 @@
                                     placeholder="Pin Code">
                             </div> -->
 
-                            <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>
+                            <button style="padding: 30px 30px;
+                            position: relative;" class="btn search-btn" type="submit"><i style="position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);" class="fa fa-search"></i></button>
 
 
                         </form>
