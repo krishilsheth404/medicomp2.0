@@ -639,7 +639,7 @@
         padding-top: 15px;
     }
     .search-form .form-inline .form-group {
-        width: 195px; 
+        width: 100%; 
     }
 
     #bg-slider .item img {
