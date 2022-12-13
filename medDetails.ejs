@@ -89,6 +89,39 @@
             color:white;margin-bottom: 80px;
         }
     }
+
+
+    .form-control {
+        padding: 30px 15px;
+        font-size: 19px;
+        background-color: white;
+        color: black;
+        width: 100%;
+    }
+
+    .search-btn {
+        padding: 30px 30px;
+        background-color: black;
+        color: white;
+        position: relative;
+    }
+
+    @media screen and (max-width:700px) {
+        .form-control {
+            padding: 20px 15px;
+            font-size: 19px;
+            background-color: white;
+            color: black;
+            width: 100%;
+        }
+        .search-btn {
+        padding: 20px 20px;
+        background-color: black;
+        color: white;
+        position: relative;
+    }
+
+    }
     </style>
 <body>
 
@@ -256,9 +289,7 @@
                         <form id="msform" onsubmit="sub()" action="/details" method="POST" class="form-inline">
 
                             <div class="form-group">
-                                <input type="text" required autocomplete="off" style="padding: 30px 15px;
-                                font-size: 20px;color: white;background-color: white;color: black;
-                                width: 100%;" minlength="3" id="foodItem" class="form-control"
+                                <input type="text" required autocomplete="off"  minlength="3" id="foodItem" class="form-control"
                                     name="foodItem" placeholder="Medicine Name" value="<%=final[final.length-1]%>">
                             </div>
                             <!-- <div class="form-group">
@@ -266,8 +297,7 @@
                                     placeholder="Pin Code">
                             </div> -->
 
-                            <button style="padding: 30px 30px;background-color: black;
-                            position: relative;" class="btn search-btn" type="submit"><i style="position: absolute;
+                            <button class="btn search-btn" type="submit"><i style="position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);" class="fa fa-search"></i></button>

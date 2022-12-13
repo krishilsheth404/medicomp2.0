@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html >
+<html>
 <!--<![endif]-->
 
 <head>
@@ -237,12 +237,45 @@
     .support a:hover {
         transform: scale(1.1);
     }
-    #bckgnd{
+
+    #bckgnd {
         background-image: linear-gradient(to right, #52c8db, #dcfaff);
 
-       background-position: bottom;
-       background-repeat:no-repeat;
-       background-size: cover;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .form-control {
+        padding: 30px 15px;
+        font-size: 19px;
+        background-color: white;
+        color: black;
+        width: 100%;
+    }
+
+    .search-btn {
+        padding: 30px 30px;
+        background-color: black;
+        color: white;
+        position: relative;
+    }
+
+    @media screen and (max-width:700px) {
+        .form-control {
+            padding: 20px 15px;
+            font-size: 19px;
+            background-color: white;
+            color: black;
+            width: 100%;
+        }
+        .search-btn {
+        padding: 20px 20px;
+        background-color: black;
+        color: white;
+        position: relative;
+    }
+
     }
 </style>
 
@@ -270,7 +303,14 @@
                     <svg style="    width: 5rem;
                     height: 8rem;
                     position: relative;
-                    top: -2.5rem;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16.49a.75.75 0 0 1-.75-.75v-8a.75.75 0 1 1 1.5 0v8a.75.75 0 0 1-.75.75Z" fill="#000"/><path d="M16 12.49H8A.75.75 0 0 1 8 11h8a.75.75 0 1 1 0 1.5v-.01Z" fill="#000"/><path d="M12 21.44a.75.75 0 0 1-.38-.1l-7.75-4.47a.77.77 0 0 1-.37-.65V7.27a.74.74 0 0 1 .37-.65l7.75-4.48a.77.77 0 0 1 .75 0l7.75 4.48a.73.73 0 0 1 .38.65v9a.76.76 0 0 1-.38.65l-7.75 4.47a.69.69 0 0 1-.37.05Zm-7-5.66 7 4 7-4V7.7l-7-4-7 4v8.08Z" fill="#000"/></svg>
+                    top: -2.5rem;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 16.49a.75.75 0 0 1-.75-.75v-8a.75.75 0 1 1 1.5 0v8a.75.75 0 0 1-.75.75Z"
+                            fill="#000" />
+                        <path d="M16 12.49H8A.75.75 0 0 1 8 11h8a.75.75 0 1 1 0 1.5v-.01Z" fill="#000" />
+                        <path
+                            d="M12 21.44a.75.75 0 0 1-.38-.1l-7.75-4.47a.77.77 0 0 1-.37-.65V7.27a.74.74 0 0 1 .37-.65l7.75-4.48a.77.77 0 0 1 .75 0l7.75 4.48a.73.73 0 0 1 .38.65v9a.76.76 0 0 1-.38.65l-7.75 4.47a.69.69 0 0 1-.37.05Zm-7-5.66 7 4 7-4V7.7l-7-4-7 4v8.08Z"
+                            fill="#000" />
+                    </svg>
 
                 </a>
             </div>
@@ -400,11 +440,11 @@
         <div class="slider-content">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-                    <h2 style="color:white;margin-bottom: 130px;">India's 1<sup>st</sup> Platform To Compare Medicine Prices</h2>
+                    <h2 style="color:white;margin-bottom: 130px;">India's 1<sup>st</sup> Platform To Compare Medicine
+                        Prices</h2>
                     <!-- <p style="color: white;text-shadow: 2px 2px 10px white;font-size: 20px">Get Live Prices Of Medicines
                         From Different Sites Here Within 5-10 seconds.</p> -->
-                    <div class="search-form wow pulse animated" data-wow-delay="0.8s"
-                        style="visibility: visible; animation-delay: 0.8s; animation-name: pulse;background: white;
+                    <div class="search-form wow pulse animated" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: pulse;background: white;
                         box-shadow:rgb(0 0 0 / 37%) 0px 8px 32px 0px;
                         backdrop-filter: blur( 6.5px );
                         -webkit-backdrop-filter: blur( 6.5px );
@@ -414,18 +454,15 @@
                         <form id="msform" onsubmit="sub()" action="/details" method="POST" class="form-inline">
 
                             <div class="form-group">
-                                <input type="text" required autocomplete="off" style="padding: 30px 15px;
-                                font-size: 19px;background-color: white;color: black;
-                                width: 100%;" minlength="3" id="foodItem" class="form-control"
-                                    name="foodItem" placeholder="Medicine Name">
+                                <input type="text" required autocomplete="off" minlength="3" id="foodItem"
+                                    class="form-control" name="foodItem" placeholder="Medicine Name">
                             </div>
                             <!-- <div class="form-group">
                                 <input type="number" autocomplete="off" class="form-control" name="pin"
                                     placeholder="Pin Code">
                             </div> -->
 
-                            <button style="padding: 30px 30px; background-color: black;color: white;
-                            position: relative;" class="btn search-btn" type="submit"><i style="position: absolute;
+                            <button class="btn search-btn" type="submit"><i style="position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);" class="fa fa-search"></i></button>
@@ -440,8 +477,9 @@
 
     <center>
 
-        <div id="styco" style="height:auto;background-image: linear-gradient(to right, #52c8db, #dcfaff);margin-top: -50px;">
-            
+        <div id="styco"
+            style="height:auto;background-image: linear-gradient(to right, #52c8db, #dcfaff);margin-top: -50px;">
+
         </div>
         <!-- property area -->
     </center>
@@ -450,114 +488,118 @@
     <!-- Swiper JS -->
 
 
-         <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
-                        <!-- /.feature title -->
-                        <h2>Medicomp Result Examples</h2>
-                        <!-- <p>Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies . </p> -->
-                    </div>
+    <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                    <!-- /.feature title -->
+                    <h2>Medicomp Result Examples</h2>
+                    <!-- <p>Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies . </p> -->
                 </div>
+            </div>
 
-                <div class="row">
-                    <div class="proerty-th">
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="property-1.html" ><img src="https://newassets.apollo247.com/pub/media/catalog/product/v/i/vic0426_1_.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="property-1.html" >VICKS VAPORUB XTRA STRONG, 50 ML
+            <div class="row">
+                <div class="proerty-th">
+                    <div class="col-sm-6 col-md-3 p0">
+                        <div class="box-two proerty-item">
+                            <div class="item-thumb">
+                                <a href="property-1.html"><img
+                                        src="https://newassets.apollo247.com/pub/media/catalog/product/v/i/vic0426_1_.jpg"></a>
+                            </div>
+                            <div class="item-entry overflow">
+                                <h5><a href="property-1.html">VICKS VAPORUB XTRA STRONG, 50 ML
                                     </a></h5>
-                                    <div class="dot-hr"></div>
-                                    <a href="https://www.apollopharmacy.in/otc/vicks-vaporub-xtra-strong-50ml">
-                                        <span class="pull-left"><b>Area :</b> Apollo </span>
-                                        <span class="proerty-price pull-right" style="color:#00ff00">₹170</span> <br>
-                                    </a>
-                                    <a href="https://pharmeasy.in/health-care/products/vicks-vaporub-xtra-strong-50-ml-3541384">
-                                        <span class="pull-left"><b>Area :</b> PharmEasy </span>
-                                        <span class="proerty-price pull-right">₹177.6</span> <br>
-                                    </a>
-                                    <a href="https://www.pulseplus.in/product/vicks-vaporub-xtra-song-50-ml-pc-52910">
-                                        <span class="pull-left"><b>Area :</b> PulsePlus </span>
-                                        <span class="proerty-price pull-right" style="color:red">₹185</span>
-                                    </a>
-                                </div>
+                                <div class="dot-hr"></div>
+                                <a href="https://www.apollopharmacy.in/otc/vicks-vaporub-xtra-strong-50ml">
+                                    <span class="pull-left"><b>Area :</b> Apollo </span>
+                                    <span class="proerty-price pull-right" style="color:#00ff00">₹170</span> <br>
+                                </a>
+                                <a
+                                    href="https://pharmeasy.in/health-care/products/vicks-vaporub-xtra-strong-50-ml-3541384">
+                                    <span class="pull-left"><b>Area :</b> PharmEasy </span>
+                                    <span class="proerty-price pull-right">₹177.6</span> <br>
+                                </a>
+                                <a href="https://www.pulseplus.in/product/vicks-vaporub-xtra-song-50-ml-pc-52910">
+                                    <span class="pull-left"><b>Area :</b> PulsePlus </span>
+                                    <span class="proerty-price pull-right" style="color:red">₹185</span>
+                                </a>
                             </div>
                         </div>
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="property-1.html" ><img src="https://www.tabletshablet.com/wp-content/uploads/2021/06/Volini-Gel-15-gm-1.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="property-1.html" >VOLINI ACTIVE 15 GM
-                                    </a></h5>
-                                    <div class="dot-hr"></div>
-                                    <a href="https://www.myupchar.com/medicine/volini-activ-p37132663/gel-15gm-v234169">
-                                        <span class="pull-left"><b>Area :</b> MyUpChar </span>
-                                        <span class="proerty-price pull-right" style="color:#00ff00">₹59.6</span> <br>
-                                    </a>
-                                    <a href="https://www.tabletshablet.com/product/volini-gel-15-gm/">
-                                        <span class="pull-left"><b>Area :</b> TabletShablet </span>
-                                        <span class="proerty-price pull-right">₹65</span> <br>
-                                    </a>
-                                    <a href="https://www.pulseplus.in/product/volini-active-15-gm-pc-40168">
-                                        <span class="pull-left"><b>Area :</b> PulsePlus </span>
-                                        <span class="proerty-price pull-right" style="color:red">₹70</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="property-1.html" ><img src="https://www.netmeds.com/images/product-v1/600x600/825299/endoreg_tablet_14s_63763_0_1.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="property-1.html" >ENDOREG TABLET 14'S
-
-                                    </a></h5>
-                                    <div class="dot-hr"></div>
-                                    <a href="https://www.netmeds.com/prescriptions/endoreg-tablet-14-s">
-                                        <span class="pull-left"><b>Area :</b> Netmeds </span>
-                                        <span class="proerty-price pull-right" style="color:#00ff00">₹580</span> <br>
-                                    </a>
-                                    <a href="https://www.apollopharmacy.in/medicine/endoreg-2mg-tablet-14-s">
-                                        <span class="pull-left"><b>Area :</b> Apollo </span>
-                                        <span class="proerty-price pull-right">₹613.83</span> <br>
-                                    </a>
-                                    <a href="https://pharmeasy.in/online-medicine-order/endoreg-2mg-tablet-15259">
-                                        <span class="pull-left"><b>Area :</b> PharmEasy </span>
-                                        <span class="proerty-price pull-right" style="color:red">₹725</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                    
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-tree more-proerty text-center">
-                                <div class="item-tree-icon">
-                                    <i class="fa fa-th"></i>
-                                </div>
-                                <div class="more-entry overflow">
-                                    <h5><a href="property-1.html" >CAN'T DECIDE Where To Buy From? </a></h5>
-                                    <!-- <h5 class="tree-sub-ttl"><a href=""></a> Try Us</h5> -->
-                                   <a href="#navb">
-                                       <button class="btn border-btn more-black" value="All properties">Try Us</button>
-                                   </a>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
+
+                    <div class="col-sm-6 col-md-3 p0">
+                        <div class="box-two proerty-item">
+                            <div class="item-thumb">
+                                <a href="property-1.html"><img
+                                        src="https://www.tabletshablet.com/wp-content/uploads/2021/06/Volini-Gel-15-gm-1.jpg"></a>
+                            </div>
+                            <div class="item-entry overflow">
+                                <h5><a href="property-1.html">VOLINI ACTIVE 15 GM
+                                    </a></h5>
+                                <div class="dot-hr"></div>
+                                <a href="https://www.myupchar.com/medicine/volini-activ-p37132663/gel-15gm-v234169">
+                                    <span class="pull-left"><b>Area :</b> MyUpChar </span>
+                                    <span class="proerty-price pull-right" style="color:#00ff00">₹59.6</span> <br>
+                                </a>
+                                <a href="https://www.tabletshablet.com/product/volini-gel-15-gm/">
+                                    <span class="pull-left"><b>Area :</b> TabletShablet </span>
+                                    <span class="proerty-price pull-right">₹65</span> <br>
+                                </a>
+                                <a href="https://www.pulseplus.in/product/volini-active-15-gm-pc-40168">
+                                    <span class="pull-left"><b>Area :</b> PulsePlus </span>
+                                    <span class="proerty-price pull-right" style="color:red">₹70</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-3 p0">
+                        <div class="box-two proerty-item">
+                            <div class="item-thumb">
+                                <a href="property-1.html"><img
+                                        src="https://www.netmeds.com/images/product-v1/600x600/825299/endoreg_tablet_14s_63763_0_1.jpg"></a>
+                            </div>
+                            <div class="item-entry overflow">
+                                <h5><a href="property-1.html">ENDOREG TABLET 14'S
+
+                                    </a></h5>
+                                <div class="dot-hr"></div>
+                                <a href="https://www.netmeds.com/prescriptions/endoreg-tablet-14-s">
+                                    <span class="pull-left"><b>Area :</b> Netmeds </span>
+                                    <span class="proerty-price pull-right" style="color:#00ff00">₹580</span> <br>
+                                </a>
+                                <a href="https://www.apollopharmacy.in/medicine/endoreg-2mg-tablet-14-s">
+                                    <span class="pull-left"><b>Area :</b> Apollo </span>
+                                    <span class="proerty-price pull-right">₹613.83</span> <br>
+                                </a>
+                                <a href="https://pharmeasy.in/online-medicine-order/endoreg-2mg-tablet-15259">
+                                    <span class="pull-left"><b>Area :</b> PharmEasy </span>
+                                    <span class="proerty-price pull-right" style="color:red">₹725</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-6 col-md-3 p0">
+                        <div class="box-tree more-proerty text-center">
+                            <div class="item-tree-icon">
+                                <i class="fa fa-th"></i>
+                            </div>
+                            <div class="more-entry overflow">
+                                <h5><a href="property-1.html">CAN'T DECIDE Where To Buy From? </a></h5>
+                                <!-- <h5 class="tree-sub-ttl"><a href=""></a> Try Us</h5> -->
+                                <a href="#navb">
+                                    <button class="btn border-btn more-black" value="All properties">Try Us</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
+    </div>
 
 
     <!--Welcome area -->
@@ -959,42 +1001,42 @@
     <!-- Initialize Swiper -->
     <style>
         @keyframes skel {
-            0%{
-                background:darkgray;
+            0% {
+                background: darkgray;
                 color: darkgray;
             }
-            100%{
-                background:white;
+
+            100% {
+                background: white;
                 color: white;
             }
         }
-       
     </style>
-   
-   <script>
-    document.body.style.overflow='scroll'
-    function sub(){
-        console.log('called')
-        var c=0;
 
-        if((document.getElementById('foodItem').value.trim()).length>2 &&c==0){
-            for(var i=0;i<10;i++){
-           var e =document.createElement('div');
-           e.className='search-form';
-           e.id=`sf${i}`;
-           e.style="height:150px;box-shadow:1px 1px 10px gray;width: 83%;margin-bottom: 20px;background:white";
-           document.getElementById('styco').appendChild(e);
-        
-           var innerdiv=document.createElement('h3');
-           innerdiv.innerText="___";
-           innerdiv.style="background:darkgray;animation:skel 2s linear infinite"
-           document.getElementById(`sf${i}`).appendChild(innerdiv);
+    <script>
+        document.body.style.overflow = 'scroll'
+        function sub() {
+            console.log('called')
+            var c = 0;
+
+            if ((document.getElementById('foodItem').value.trim()).length > 2 && c == 0) {
+                for (var i = 0; i < 10; i++) {
+                    var e = document.createElement('div');
+                    e.className = 'search-form';
+                    e.id = `sf${i}`;
+                    e.style = "height:150px;box-shadow:1px 1px 10px gray;width: 83%;margin-bottom: 20px;background:white";
+                    document.getElementById('styco').appendChild(e);
+
+                    var innerdiv = document.createElement('h3');
+                    innerdiv.innerText = "___";
+                    innerdiv.style = "background:darkgray;animation:skel 2s linear infinite"
+                    document.getElementById(`sf${i}`).appendChild(innerdiv);
+                }
+                c++;
+                document.getElementById('msform').submit();
+            }
         }
-        c++;
-            document.getElementById('msform').submit();
-        }
-    }
-   </script>
+    </script>
 
 </body>
 
