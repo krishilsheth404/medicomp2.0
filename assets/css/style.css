@@ -8,7 +8,9 @@ body {
     font-weight: 300;
     padding:0;
     margin:0;
+    overflow: hidden;
     font-size:14px;
+    margin: 0px;
     line-height: 28px;
     color: #777; 
     background: #fff; 
@@ -311,7 +313,7 @@ input[type="search"]::-webkit-search-decoration {
     font-weight: 600;
 }
 .search-form {
-    background-color: #fff;
+    background-color: transparent;
     border-radius: 5px;
     padding: 20px 0;
     border: 1px solid #E6E6E6;
@@ -2484,7 +2486,7 @@ count-area
     padding: 15px;
 }
 .search-form .form-inline .form-group { 
-    width: 45%;
+    width: 90%;
     text-align: left;
     letter-spacing: 0.5px;
 }
@@ -3048,7 +3050,9 @@ padding: 10px;
      
 @media screen and (max-width:500px) {
    
- 
+     body{
+        overflow: hidden;
+     }
     .proerty-th .proerty-item .item-thumb img{
         min-height: 0px;
         max-height: 1000px;
