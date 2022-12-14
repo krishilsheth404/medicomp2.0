@@ -3,6 +3,7 @@ const express = require('express'); // Include ExpressJS
 const app = express(); // Create an ExpressJS app
 const bodyParser = require('body-parser'); // Middleware 
 const axios = require('axios')
+const localStorage = require("localStorage")
 const path = require('path');
 const cheerio = require('cheerio')
 // const puppeteer = require('puppeteer');
@@ -38,48 +39,51 @@ app.post('/details', async(req, res) => {
     // Insert Login Code Here
 
     const final = []
-    console.log(req.body.foodItem)
+    const l=(req.body.foodItem).split(' ');
+    if(l.length>1){
+        urlForPe = `https://www.pulseplus.in/products/${l[0]}`;
+    }else if (l.length==1){
+        urlForPe = `https://www.pulseplus.in/products/${l[0]}`;
+
+    }
 
 
-    urlForPe = `https://www.pulseplus.in/products/${req.body.foodItem}`;
 
     extractdoe = async(url) => {
         try {
             // Fetching HTML
             const { data } = await axios.get(url)
-
-            // Using cheerio to extract <a> tags
             const $ = cheerio.load(data);
-            var temp;
-            // BreadCrumb_peBreadCrumb__2CyhJ
-            try{
-
-                $('.col-sm-4 a').map((i, elm) => {
-                    
-                    
+            // console.log(data)
+      console.log(final);            
+            $('.col-sm-4 a').map((i, elm) => {
                     final.push({
                         name:$(elm).text(),
-                        link:'https://www.pulseplus.in'+$(elm).attr('href')});
+                        link:'https://www.pulseplus.in'+$(elm).attr('href')});   
+                    })
                     
-                })
-            }catch(e){
-                console.log(e);
-            }
-            final.sort();
-            final.push(req.body.pin);
-            final.push(req.body.foodItem);
-            console.log(final)
-
+                  
+                    
+            
+                    
         } catch (error) {
             // res.sendFile(__dirname + '/try.html');
             // res.sendFile(__dirname + '/error.html');
             // console.log(error);
-
-            // console.log(error);
-            return {};
+            final.push({
+                name:"No Products Found",
+                link:'',
+            });
+         
+         
         }
     };
-    await extractdoe(urlForPe);
+        await extractdoe(urlForPe);
+        final.sort();
+        final.push(req.body.pin);
+        final.push(req.body.foodItem);
+        // console.log(final)
+        
     res.render(__dirname+'/medDetails', { final: final });
 });
 
@@ -110,6 +114,7 @@ app.post('/products', async(req, res) => {
                     count++;
                     // }
                 })
+
             }catch(e){
                 console.log(e);
             }
@@ -401,8 +406,8 @@ extractDataOfPharmEasy = async (url) => {
 
         return {
             name: 'PharmEasy',
-            link: url,
             item: temp,
+            link: url,
             imgLink: $('.swiper-wrapper img').attr('src'),
             price: price,
             offer:offers,
@@ -441,8 +446,8 @@ extractDataOfNetMeds = async (url) => {
 
         return {
             name: 'NetMeds',
-            link: url,
             item: $('.product-detail').text(),
+            link: url,
             imgLink: $('.largeimage img').attr('src'),
             price: $('#last_price').attr('value'),
             offer:offers,
@@ -489,9 +494,9 @@ extractDataOfApollo = async (url) => {
 
         return {
             name: 'Apollo',
-            item: apolloData.props.pageProps.url_key,
+            item: apolloData.props.pageProps.productDetails.productdp[0].name,
             link: url,
-            imgLink: $('.ProductCard_bigAvatar__2D8AB img').attr('src'),
+            imgLink: 'https://newassets.apollo247.com/pub/media'+apolloData.props.pageProps.productDetails.productdp[0].image,
             price: m,
             offer:offers,
         };
@@ -730,8 +735,17 @@ extractDataOfMyUpChar = async (url) => {
         
         // console.log($.html());
         var a = $('.head h1').first().text();
+        if(!a){
+            a=$('#med_details h1').first().text();
+        }
         // console.log(a);
         var b = $('.price_txt .txt_big').first().text();
+        if(!b){
+            b=$('.pack_sp').first().text();
+        }
+        if(!b){
+            b=$('.pack_mrp').first().text();
+        }
         // console.log(b);
         if (b != '') {
             if (b.includes('₹')) {
@@ -827,6 +841,33 @@ extractDataOfPP= async (url) => {
 };
 
 
+
+extractDataOfEgmedi= async (url) => {
+    try {
+        // Fetching HTML
+        const { data } = await axios.get(url)
+
+        // Using cheerio to extract <a> tags
+        const $ = cheerio.load(data);
+       
+        // console.log($.html());
+
+        return {
+            name: 'Egmedi',
+            item:$('.product h2').first().text(),
+            link: $('.product a').first().attr('href'),
+            imgLink: $('.product img').first().attr('src'),
+            price: $('.product .price').first().text(),
+            offer:'',
+        };
+
+    } catch (error) {
+        // res.sendFile(__dirname + '/try.html');
+        // res.sendFile(__dirname + '/error.html');
+        // console.log(error);
+        return {};
+    }
+};
 
 
 
@@ -1063,7 +1104,7 @@ app.post('/result', async(req, res) => {
             await Promise.all([extractDataOfNetMeds(item[0]), extractDataOfPharmEasy(item[1]),extractDataOfOBP(item[2]), 
             extractDataOfmedplusMart(req.body.foodLink?req.body.foodLink:item[3]), extractDataOfMyUpChar(item[4]),
             extractDataOfHealthmug(item[5]),extractDataOf3Meds(item[6]),extractDataOfPP(item[7]),
-            extractDataOfApollo(item[8])])
+            extractDataOfApollo(item[8]),extractDataOfEgmedi(`https://egmedi.com/shop/page/1/?s=${nameOfMed}`)])
                 .then(await axios.spread(async (...responses) => {
                     // console.log(...responses);
         
@@ -1076,6 +1117,7 @@ app.post('/result', async(req, res) => {
                     final.push(responses[6])
                     final.push(responses[7])
                     final.push(responses[8])
+                    final.push(responses[9])
                     // await extractSubsfApollo(final[final.length-1].link,final);
         
                 }))

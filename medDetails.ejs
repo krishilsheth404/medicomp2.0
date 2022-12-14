@@ -280,7 +280,7 @@
                         From Different Sites Here Within 5-10 seconds.</p> -->
                     <div class="search-form wow pulse animated" data-wow-delay="0.8s"
                         style="visibility: visible; animation-delay: 0.8s; animation-name: pulse;background: white;
-                        box-shadow:rgb(0 0 0 / 37%) 0px 8px 32px 0px;
+                        box-shadow:20px 20px 60px #57cadd, -20px -20px 60px #daf9fe;
                         backdrop-filter: blur( 6.5px );
                         -webkit-backdrop-filter: blur( 6.5px );
                         border-radius: 10px;
@@ -289,7 +289,7 @@
                         <form id="msform" onsubmit="sub()" action="/details" method="POST" class="form-inline">
 
                             <div class="form-group">
-                                <input type="text" required autocomplete="off"  minlength="3" id="foodItem" class="form-control"
+                                <input type="text" oninput="filter(this.value)" required autocomplete="off"  minlength="3" id="foodItem" class="form-control"
                                     name="foodItem" placeholder="Medicine Name" value="<%=final[final.length-1]%>">
                             </div>
                             <!-- <div class="form-group">
@@ -320,10 +320,12 @@
                     style="visibility: visible;animation-delay: 0.8s;animation-name: pulse">
                     <!-- <p style="margin: 0px;"><%=final[i]%></p> -->
                     <h4><%=final[i].name%></h4>
-                    <input type="text"  id="foodItem" name="foodItem"  style="visibility:hidden;text-align: center;background-color: white;color: black;" value="<%=final[i].name%>">
+                    <input type="text"  id="foodItem" name="foodItem"   style="visibility:hidden;text-align: center;background-color: white;color: black;" value="<%=final[i].name%>">
                     <input type="text" disabled id="foodLink" name="foodLink"  style="display: none;text-align: center;height: 0px;width: 0px;" value="<%=final[i].link%>">
                 </div>
-                <input type="submit" onclick="showLoading()" value="Medicomp" id="smtbtn">
+                <%if(final[i].link!=''){%>
+                    <input type="submit" onclick="showLoading()" value="Medicomp" id="smtbtn">
+                    <%}%> 
             </div>
         </form>
         <%}%>
