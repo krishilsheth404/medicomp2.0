@@ -9,8 +9,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>GARO ESTATE | Home page</title>
-    <meta name="description" content="GARO is a real-estate template">
+    <title>Medicomp India | Home page</title>
+    <meta name="description" content="India's 1st platform to compare medicine prices.">
     <meta name="author" content="Kimarotec">
     <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -244,6 +244,7 @@
         background-position: bottom;
         background-repeat: no-repeat;
         background-size: cover;
+        margin-bottom: 100px;
     }
 
     .form-control {
@@ -275,6 +276,14 @@
         color: white;
         position: relative;
     }
+    #bckgnd {
+        background-image: linear-gradient(to right, #52c8db, #dcfaff);
+
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-bottom: 20px;
+    }
 
     }
 </style>
@@ -299,30 +308,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="medaz.html">
-                    <svg style="    width: 5rem;
-                    height: 8rem;
-                    position: relative;
-                    top: -2.5rem;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 16.49a.75.75 0 0 1-.75-.75v-8a.75.75 0 1 1 1.5 0v8a.75.75 0 0 1-.75.75Z"
-                            fill="#000" />
-                        <path d="M16 12.49H8A.75.75 0 0 1 8 11h8a.75.75 0 1 1 0 1.5v-.01Z" fill="#000" />
-                        <path
-                            d="M12 21.44a.75.75 0 0 1-.38-.1l-7.75-4.47a.77.77 0 0 1-.37-.65V7.27a.74.74 0 0 1 .37-.65l7.75-4.48a.77.77 0 0 1 .75 0l7.75 4.48a.73.73 0 0 1 .38.65v9a.76.76 0 0 1-.38.65l-7.75 4.47a.69.69 0 0 1-.37.05Zm-7-5.66 7 4 7-4V7.7l-7-4-7 4v8.08Z"
-                            fill="#000" />
-                    </svg>
-
+                <a class="navbar-brand" href="medaz.html" style="position: relative;width: 19rem;height: 7rem;">
+                    <img src="medicomp2logo.png" alt="Medicomp India Logo" style="position: absolute;top:50%;left: 50%;transform: translate(-50%,-50%);filter: invert(1);width: 100%;margin-left:-20px">
                 </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse yamm" id="navigation">
-                <div class="button navbar-right">
-                    <button class="navbar-btn nav-button wow bounceInRight login"
-                        onclick=" window.open('register.html')" data-wow-delay="0.45s">Login</button>
-                    <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')"
-                        data-wow-delay="0.48s">Submit</button>
-                </div>
+              
                 <ul class="main-nav nav navbar-nav navbar-right">
                     <li class="dropdown ymm-sw " data-wow-delay="0.1s">
                         <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown"
@@ -437,23 +430,131 @@
         <div>
 
         </div>
-        <div class="slider-content">
+        <div class="slider-content" >
             <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12" style="margin-bottom: 130px;">      
+<style>
+                        @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono);
+
+.hidden {
+  opacity:0;
+}
+.console-container {
+  font-family:Ubuntu Mono, monospace;
+  font-weight:300;
+  font-size:40px;
+  text-align:left;
+  height:200px;
+  width:800px;
+  display:block;
+  position:absolute;
+  color:#FF0034;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
+  padding: 0 30px;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.console-underscore {
+   display:inline-block;
+  position:relative;
+  top:-0.14em;
+  left:10px;
+}
+#text{
+  font-size: 40px;
+        font-weight: 400;
+        color: #FF0076;
+        background-image: linear-gradient(-90deg, #FF0076, #FF003B);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
+.console-underscore{
+  color: #FF0076;
+}
+</style>
+<h2 style="margin-bottom: 130px;">
+    <div class='console-container' >
+        <h2 style="color: gray;">With Medicomp India </h2>
+        <h3 id="mainmar" style="color: black;">Save</h3>
+        <span id='text'></span>
+        <div class='console-underscore' id='console'>&#95;</div></div>
+    </h2>
+<script>
+    // function([string1, string2],target id,[color1,color2])    
+ consoleText(['#Time', '#Money', '#Data'], 'text',['#FF0034']);
+
+function consoleText(words, id, colors) {
+  if (colors === undefined) colors = ['#FF0034'];
+  var visible = true;
+  var con = document.getElementById('console');
+  var letterCount = 1; 
+  var x = 1;
+  var waiting = false;
+  var target = document.getElementById(id)
+  target.setAttribute('style', 'color:' + colors[0])
+  window.setInterval(function() {
+
+    if (letterCount === 0 && waiting === false) {
+      waiting = true;
+      target.innerHTML = words[0].substring(0, letterCount)
+      window.setTimeout(function() {
+        var usedColor = colors.shift();
+        colors.push(usedColor);
+        var usedWord = words.shift();
+        words.push(usedWord);
+        x = 1;
+        target.setAttribute('style', 'color:' + colors[0])
+        letterCount += x;
+        waiting = false;
+      }, 1200)
+    } else if (letterCount === words[0].length + 1 && waiting === false) {
+      waiting = true;
+      window.setTimeout(function() {
+        x = -1;
+        letterCount += x;
+        waiting = false;
+      }, 1200)
+    } else if (waiting === false) {
+      target.innerHTML = words[0].substring(0, letterCount)
+      letterCount += x;
+    }
+  }, 25)
+  window.setInterval(function() {
+    if (visible === true) {
+      con.className = 'console-underscore hidden'
+      visible = false;
+
+    } else {
+      con.className = 'console-underscore'
+
+      visible = true;
+    }
+  }, 200)
+}
+</script>
+                </div>
+                
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-                    <h2 style="color:white;margin-bottom: 130px;">India's 1<sup>st</sup> Platform To Compare Medicine
-                        Prices</h2>
+                   
+              
+
                     <!-- <p style="color: white;text-shadow: 2px 2px 10px white;font-size: 20px">Get Live Prices Of Medicines
                         From Different Sites Here Within 5-10 seconds.</p> -->
                     <div class="search-form wow pulse animated" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: pulse;background: white;
-                        box-shadow:rgb(0 0 0 / 37%) 0px 8px 32px 0px;
+                        box-shadow:20px 20px 60px #57cadd, -20px -20px 60px #daf9fe;
                         backdrop-filter: blur( 6.5px );
                         -webkit-backdrop-filter: blur( 6.5px );
                         border-radius: 10px;
                         border: 1px solid rgba( 255, 255, 255, 0.18 );">
 
-                        <form id="msform" onsubmit="sub()" action="/details" method="POST" class="form-inline">
+                        <form id="msform" onsubmit="sub()" action="/details" method="POST" class="form-inline" style="display: flex;margin: 10px;">
 
-                            <div class="form-group">
+                            <div class="form-group" style="width: 100%">
                                 <input type="text" required autocomplete="off" minlength="3" id="foodItem"
                                     class="form-control" name="foodItem" placeholder="Medicine Name">
                             </div>
@@ -488,7 +589,7 @@
     <!-- Swiper JS -->
 
 
-    <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
+    <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
@@ -736,13 +837,13 @@
             </div>
             <div class="row">
                 <div class="col-md-12 col-xs-12 percent-blocks m-main" data-waypoint-scroll="true">
-                    <div class="row">
+                    <div class="row" style="display: flex;align-items: center;justify-content: center;flex-wrap: wrap;">
                         <div class="col-sm-3 col-xs-6">
                             <div class="count-item">
                                 <div class="count-item-circle">
                                     <span class="pe-7s-users"></span>
                                 </div>
-                                <div class="chart" data-percent="5000">
+                                <div class="chart" data-percent="7002">
                                     <h2 class="percent" id="counter">0</h2>
                                     <h5>HAPPY CUSTOMER </h5>
                                 </div>
@@ -753,9 +854,9 @@
                                 <div class="count-item-circle">
                                     <span class="pe-7s-home"></span>
                                 </div>
-                                <div class="chart" data-percent="12000">
-                                    <h2 class="percent" id="counter1">0</h2>
-                                    <h5>Properties in stock</h5>
+                                <div class="chart" data-percent="35000">
+                                    <h2 class="percent" id="counter1">35000</h2>
+                                    <h5>Products</h5>
                                 </div>
                             </div>
                         </div>
@@ -764,24 +865,13 @@
                                 <div class="count-item-circle">
                                     <span class="pe-7s-flag"></span>
                                 </div>
-                                <div class="chart" data-percent="120">
+                                <div class="chart" data-percent="11">
                                     <h2 class="percent" id="counter2">0</h2>
-                                    <h5>City registered </h5>
+                                    <h5>Companies Registered </h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-3 col-xs-6">
-                            <div class="count-item">
-                                <div class="count-item-circle">
-                                    <span class="pe-7s-graph2"></span>
-                                </div>
-                                <div class="chart" data-percent="5000">
-                                    <h2 class="percent" id="counter3">5000</h2>
-                                    <h5>DEALER BRANCHES</h5>
-                                </div>
-                            </div>
-
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -799,7 +889,7 @@
                             <span class="fa fa-search"></span>
                         </div>
                         <div class="asks-first-info">
-                            <h2>ARE YOU LOOKING FOR A Property?</h2>
+                            <h2>ARE YOU LOOKING FOR AN ONLINE PHARMACY?</h2>
                             <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa
                             </p>
                         </div>
@@ -814,7 +904,7 @@
                             <span class="fa fa-usd"></span>
                         </div>
                         <div class="asks-first-info">
-                            <h2>DO YOU WANT TO SELL A Property?</h2>
+                            <h2>DO YOU WANT YOUR PHARMACY TO BE LISTED HERE?</h2>
                             <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa
                             </p>
                         </div>
@@ -824,7 +914,14 @@
                     </div>
                 </div>
                 <div class="col-xs-12">
-                    <p class="asks-call">QUESTIONS? CALL US : <span class="strong"> + 3-123- 424-5700</span></p>
+                    <p class="asks-call">QUESTIONS? CALL US : 
+                        <a href="tel:+919372677245">
+                        <span class="strong">
+
+                        +91-9372677245
+                    </span>
+                    </a>
+                </p>
                 </div>
             </div>
         </div>
@@ -842,8 +939,10 @@
                             <h4>About us </h4>
                             <div class="footer-title-line"></div>
 
-                            <img src="assets/img/footer-logo.png" alt="" class="wow pulse" data-wow-delay="1s">
-                            <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
+                            <img src="medicomp2logo.png" alt="Medicomp India Logo" style="filter: invert(1);width: 100%;height: 100%;">
+
+                            <p>India's 1 <sup>st</sup> online medicine price comparison company, MEDICOMP INDIA ,
+                                is a start-up that gets Live Prices Of Medicines From Different Sites All On One Platform within 5-10 seconds.</p>
                             <ul class="footer-adress">
                                 <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
                                 <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
