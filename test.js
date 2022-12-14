@@ -3,7 +3,6 @@ const express = require('express'); // Include ExpressJS
 const app = express(); // Create an ExpressJS app
 const bodyParser = require('body-parser'); // Middleware 
 const axios = require('axios')
-const localStorage = require("localStorage")
 const path = require('path');
 const cheerio = require('cheerio')
 // const puppeteer = require('puppeteer');
