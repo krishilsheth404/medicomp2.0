@@ -149,11 +149,26 @@ app.post('/description', async(req, res) => {
             // console.log($.html())
             
             
-           const z=$('.ProductDetailsGeneric_descListing__2XUn8').text();//detailed description
-           const x=[];
-           $('.ProductDetailsGeneric_txtListing__1xuVZ ul li').map((i, elm) => {
-               x.push($(elm).text());
-         });
+            
+            const z=[]//detailed description
+            const x=[];
+            const descr=[];
+            $('.ProductDetailsGeneric_descListing__w3wG3 h2').map((i, elm) => {
+                z.push($(elm).text());
+               })
+
+               $('.ProductDetailsGeneric_descListing__w3wG3 div').map((i, elm) => {
+                               x.push($(elm).text());
+                              //  console.log('https://www.pulseplus.in'+$(elm).attr('href'));                        
+                            })
+               
+                    for(var i=0;i<x.length;i++){
+                        descr.push({'data':z[i],
+                                    'res':x[i]
+                                });
+                    }
+
+            console.log(descr)
          const y=[];
          var temp,temp2;
          $('.PdpFaq_panelRoot__3xR9g').map((i, elm) => {
@@ -165,8 +180,7 @@ app.post('/description', async(req, res) => {
        });
           
            final.push({
-            desc:z,
-            sideeffects:x,
+            desc:descr,
             faq:y,
         });
 
@@ -186,6 +200,7 @@ app.post('/description', async(req, res) => {
        
         const subs=[];
 
+        
         $('.ProductSubstituteWidget_productTitle__3-F3o').each(function(i, elm) {
             NameOfSubs.push($(elm).text()) // for name 
         });
@@ -197,7 +212,7 @@ app.post('/description', async(req, res) => {
             ImgLinkOfSubs.push($(elm).attr('srcset')) // for imgLink 
         });
 
-        if(NameOfSubs=='')
+        if(NameOfSubs.length==0)
         {
             console.log('method 2');
             $('.CommonWidget_productTitle__lhhlP').each(function(i, elm) {
@@ -210,6 +225,19 @@ app.post('/description', async(req, res) => {
                 ImgLinkOfSubs.push($(elm).attr('srcset')) // for imgLink 
             });
         }
+        if(NameOfSubs.length==0){
+          console.log('method 3');
+          $('.CommonWidget_productTitle__4pL5y').each(function(i, elm) {
+              NameOfSubs.push($(elm).text()) // for name 
+          });
+          $('.CommonWidget_priceGroup__v1Wyg').each(function(i, elm) {
+              PriceOfSubs.push($(elm).text()) // for price 
+          });
+          $('.CommonWidget_productIcon__f_V39 img').each(function(i, elm) {
+              ImgLinkOfSubs.push($(elm).attr('data-srcset')) // for imgLink 
+          });
+        }
+        
         
         console.log('PRODUCT SUBSTITUTES-.\n');
         for(var i=0;i<NameOfSubs.length;i++){
@@ -877,7 +905,7 @@ app.post('/result', async(req, res) => {
     // Insert Login Code Here
 
     const nameOfMed = req.body.foodItem + '\n';
-    console.log(req.body.foodLink);
+    console.log(req.body.foodItem);
     // console.log('Name')
     // try {
     //     let date_ob = new Date();
@@ -1017,30 +1045,45 @@ app.post('/result', async(req, res) => {
             // console.log($.html());
             const subs=[];
 
-            $('.ProductSubstituteWidget_productTitle__3-F3o').each(function(i, elm) {
+           
+        $('.ProductSubstituteWidget_productTitle__3-F3o').each(function(i, elm) {
+            NameOfSubs.push($(elm).text()) // for name 
+        });
+        console.log(NameOfSubs[1])
+        $('.ProductSubstituteWidget_priceGroup__bX52h').each(function(i, elm) {
+            PriceOfSubs.push($(elm).text()) // for price 
+        });
+        $('.ProductSubstituteWidget_productIcon__BIGXr img').each(function(i, elm) {
+            ImgLinkOfSubs.push($(elm).attr('srcset')) // for imgLink 
+        });
+
+        if(NameOfSubs.length==0)
+        {
+            console.log('method 2');
+            $('.CommonWidget_productTitle__lhhlP').each(function(i, elm) {
                 NameOfSubs.push($(elm).text()) // for name 
             });
-            console.log(NameOfSubs[1])
-            $('.ProductSubstituteWidget_priceGroup__bX52h').each(function(i, elm) {
+            $('.CommonWidget_priceGroup__21BGB').each(function(i, elm) {
                 PriceOfSubs.push($(elm).text()) // for price 
             });
-            $('.ProductSubstituteWidget_productIcon__BIGXr img').each(function(i, elm) {
+            $('.CommonWidget_productIcon__3GJCc img').each(function(i, elm) {
                 ImgLinkOfSubs.push($(elm).attr('srcset')) // for imgLink 
             });
+        }
+        if(NameOfSubs.length==0){
+          console.log('method 3');
+          $('.CommonWidget_productTitle__4pL5y').each(function(i, elm) {
+              NameOfSubs.push($(elm).text()) // for name 
+          });
+          $('.CommonWidget_priceGroup__v1Wyg').each(function(i, elm) {
+              PriceOfSubs.push($(elm).text()) // for price 
+          });
+          $('.CommonWidget_productIcon__f_V39 img').each(function(i, elm) {
+              ImgLinkOfSubs.push($(elm).attr('data-srcset')) // for imgLink 
+          });
+        }
+        
 
-            if(NameOfSubs=='')
-            {
-                console.log('method 2');
-                $('.CommonWidget_productTitle__lhhlP').each(function(i, elm) {
-                    NameOfSubs.push($(elm).text()) // for name 
-                });
-                $('.CommonWidget_priceGroup__21BGB').each(function(i, elm) {
-                    PriceOfSubs.push($(elm).text()) // for price 
-                });
-                $('.CommonWidget_productIcon__3GJCc img').each(function(i, elm) {
-                    ImgLinkOfSubs.push($(elm).attr('srcset')) // for imgLink 
-                });
-            }
             console.log('PRODUCT SUBSTITUTES-.\n');
             for(var i=0;i<5;i++){
 
@@ -1117,13 +1160,13 @@ app.post('/result', async(req, res) => {
                     final.push(responses[7])
                     final.push(responses[8])
                     final.push(responses[9])
-                    // await extractSubsfApollo(final[final.length-1].link,final);
+                    await extractSubsfApollo(item[8],final);
         
                 }))
                 final.sort((a, b) => a.price - b.price); // b - a for reverse sort
 
                 // console.log(final[final.length-1]);
-                // final.push()
+                final.push(item[8])
                 final.push(nameOfMed)
                 console.log(final)
               

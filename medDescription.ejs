@@ -232,17 +232,14 @@
                         <div class="">
 
                             <div class="single-property-wrapper">
-
-                                <div class="section">
-                                    <h4 class="s-property-title">Description</h4>
-                                    <div class="s-property-content">
-                                        <p style="line-break:anywhere;height: 400px;overflow: hidden;background: linear-gradient(transparent, #d9d9d9);"  id="detInP"> <%=final[0].desc%>                              </p>
-                                    </div>
+                                <% for(var i=0; i < final[0].desc.length; i++) { %>
+                                    <div class="section">
+                                        <h4 class="s-property-title"><%=final[0].desc[i].data%></h4>
+                                        <div class="s-property-content">
+                                            <p style="line-break:anywhere;height: auto"  id="detInP"> <%=final[0].desc[i].res%>                              </p>
+                                        </div>
+                                <%}%>
                                 </div>
-                          <center>
-                              <button id="showMoreBtn" onclick="show()">Read More.
-                              </button>
-                          </center>
 
                                 <script>
                                     function show(){
@@ -257,18 +254,7 @@
                                 <!-- End description area  -->
 
                         
-                                <div class="section property-features">      
-
-                                    <h4 class="s-property-title">Side Effects</h4>                            
-                                    <ul>
-                                       
-                                        <% for(var i=0; i < final[0].sideeffects.length; i++) { %>
-                                            <li>
-                                                <%=final[0].sideeffects[i]%>
-                                            </li>
-                                                <%}%>
-                                            </ul>
-                                </div>
+                                
                                 <!-- End features area  -->
 
                                 <section>
@@ -321,18 +307,8 @@
                                 <!-- End video area  -->
 
                                 <div class="section property-share"> 
-                                    <h4 class="s-property-title">Share width your friends </h4> 
-                                    <div class="roperty-social">
-                                        <ul> 
-                                            <li><a title="Share this on dribbble " href="#"><img src="assets/img/social_big/dribbble_grey.png"></a></li>                                         
-                                            <li><a title="Share this on facebok " href="#"><img src="assets/img/social_big/facebook_grey.png"></a></li> 
-                                            <li><a title="Share this on delicious " href="#"><img src="assets/img/social_big/delicious_grey.png"></a></li> 
-                                            <li><a title="Share this on tumblr " href="#"><img src="assets/img/social_big/tumblr_grey.png"></a></li> 
-                                            <li><a title="Share this on digg " href="#"><img src="assets/img/social_big/digg_grey.png"></a></li> 
-                                            <li><a title="Share this on twitter " href="#"><img src="assets/img/social_big/twitter_grey.png"></a></li> 
-                                            <li><a title="Share this on linkedin " href="#"><img src="assets/img/social_big/linkedin_grey.png"></a></li>                                        
-                                        </ul>
-                                    </div>
+                                    <h4 class="s-property-title">Substitutes </h4> 
+                                    
                                 </div>
                                 <!-- End video area  -->
                             </div>
