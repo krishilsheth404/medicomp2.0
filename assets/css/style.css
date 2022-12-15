@@ -1090,8 +1090,7 @@ font-weight: 500;
 page-header
 ======================================================*/
 .page-head{
-    background: #494C53 url("../../assets/img/page-header.jpg") 
-        no-repeat scroll center top / cover;
+    background:linear-gradient(to right, #52c8db, #dcfaff);
     color:#FFF;
     position: relative;
     min-height: 140px;
@@ -2807,7 +2806,7 @@ color: #535353;
 }
 .footer{
 padding: 0px 0px 60px;
-background: rgba(255, 255, 255, 0.89) none repeat scroll 0% 0%;
+background: white;
 }
 .footer ul li i { 
     padding-right: 10px;
