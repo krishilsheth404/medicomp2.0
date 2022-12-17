@@ -92,18 +92,16 @@ $(document).ready(function () {
             var curval1 = parseInt($('#counter1').text().replace(' ', ''));
             var curval2 = parseInt($('#counter2').text());
             var curval3 = parseInt($('#counter3').text());
-            if (curval <= 1007) {
+            if (curval <= 7001) {
                 $('#counter').text(curval + 1);
             }
-            if (curval1 <= 1280) {
+            if (curval1 <= 34999) {
                 $('#counter1').text(sdf_FTS((curval1 + 20), 0, ' '));
             }
-            if (curval2 <= 145) {
+            if (curval2 <= 10) {
                 $('#counter2').text(curval2 + 1);
             }
-            if (curval3 <= 1022) {
-                $('#counter3').text(curval3 + 1);
-            }
+          
         }, 2);
     }, 500);
 
