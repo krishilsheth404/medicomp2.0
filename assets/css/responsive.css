@@ -160,6 +160,7 @@
     }
     .form-inline .form-control, .form-inline .form-control { 
         width: 100%;
+        font-size: 17px;
     }
 
     .slider-content {
@@ -370,7 +371,8 @@
         width: 100%; 
     }
     .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
-        width: 100%;  
+        width: 20%;  
+        height: 40px;
     }
     .bootstrap-select button.dropdown-toggle { 
         width: 100%;
@@ -792,6 +794,7 @@
         height: 150px;
         width: 150px;
     }
+ 
     .property-item{
         display: none;
     }
