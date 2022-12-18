@@ -153,14 +153,24 @@
                             <div id="list-type" class="proerty-th" style="display: flex;
                             flex-wrap: wrap;
                             align-items: flex-start;
-                            justify-content: center;">
+                            justify-content: flex-start;">
                                 <% for(var i=0; i < final.length; i++) { %>
                                     <% if(final[i].item&&final[i].price) {itemCount++;%>
                                       
-                                        <div class="col-sm-6 col-md-4 p0">
+                                        <style>
+                                            @media screen and (max-width:700px) {
+                                                #respd{
+                                                    width: 50%;
+                                                    font-size: 10px;
+                                                    padding: 0px;
+                                                }
+                                            
+                                            }
+                                        </style>
+                                        <div class="col-sm-6 col-md-4 " id="respd">
                                             <div class="box-two proerty-item">
                                                 <div class="item-thumb">
-                                                    <a href="<%=final[i].link%>" ><img src="<%=final[i].imgLink%>"></a>
+                                                    <a href="<%=final[i].link%>" ><img style="object-fit: cover;" src="<%=final[i].imgLink%>"></a>
                                                 </div>
                                                 
                                                 <div class="item-entry overflow">
@@ -168,20 +178,19 @@
                                                         
                                                         <div class="dot-hr"></div>
                                                         <span class="pull-left " style="font-weight:bold"><b> Area :</b> <%=final[i].name%> </span>
-                                                      
+                                                        
                                                         <span class="proerty-price pull-right "><%=final[i].price%></span>
                                                         <span class="pull-right pulse"></span> <br><br>
                                                         <ul>
+                                                            <%if(final[i].offer[0]){%>
+                                                            <span class="pull-left " style="font-weight:bold"><b>Offers </b></span> <br>
                                                             <% for(var j=0; j < final[i].offer.length; j++) { %>
                                                                 <li><%=final[i].offer[j]%></li>
                                                                     <%}%>
+                                                                    <%}%>
                                                             </ul>
                                                             
-                                                        <div class="property-icon">
-                                                            <i class="fa-sharp fa-solid fa-money-bill" style="font-size: 25px;"></i> |
-                                                            <i class="fa-solid fa-credit-card" style="font-size: 25px;"></i> |
-                                                            <i style="font-size: 25px;font-style:bold;">UPI</i>  
-                                                        </div>
+                                                       
                                                     </div>
             
             
