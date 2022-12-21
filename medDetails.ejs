@@ -488,28 +488,36 @@ function consoleText(words, id, colors) {
         </div>
     </div>
 
+    <style>
+        a:hover{
+            cursor: pointer;
+        }
+    </style>
     <center>
         <div class="styco" style="height:auto;background-image: linear-gradient(to right, #52c8db, #dcfaff);">
 
             <% for(var i=0; i < final.length-2; i++) { %>
-                <form id="msform" action="/result" method="POST" class="searchString<%=i+1%> <%=final[i].name.replaceAll(' ','')%> ss">
-                    <div style="width: 83%;margin-bottom: 20px;background:white;color: black;">
+                <div style="width: 83%;margin-bottom: 20px;background:white;color: black;">
+                    <form id="msform<%=i+1%>" action="/result" method="POST" class="searchString<%=i+1%> <%=final[i].name.replaceAll(' ','')%> ss">
+                    <a  onclick="this.parentNode.submit();" id="form<%=i+1%>">
                         <div class="search-form "  data-wow-delay="0.8s"
-                        style="visibility: visible;animation-delay: 0.8s;animation-name: pulse">
+                        style="visibility: visible;animation-delay: 0.8s;animation-name: pulse;color: black;">
                         <!-- <p style="margin: 0px;"><%=final[i]%></p> -->
                         <h4><%=final[i].name%></h4>
                         <input type="text" oninput="filter(this.value)"   id="foodItem" name="foodItem"   style="visibility:hidden;text-align: center;background-color: white;color: black;" value="<%=final[i].name%>">
-                        <input type="text" disabled id="foodLink" name="foodLink"  style="display: none;text-align: center;height: 0px;width: 0px;" value="<%=final[i].link%>">
+                        <!-- <input type="text" disabled id="foodLink" name="foodLink"  style="display: none;text-align: center;height: 0px;width: 0px;" value="<%=final[i].link%>"> -->
                     </div>
-                    <%if(final[i].link!=''){%>
-                        <input type="submit"  onclick="showLoading()" value="Medicomp" id="smtbtn">
-                        <%}%> 
+                </a>
+                </form>
                 </div>
-            </form>
             <%}%>
         </div>
         </center>  
 
+        <!-- <div>
+            <%const  name=final[0].name.split(' ')%>
+            View All Products For : <%=name[0]%>
+        </div> -->
 
     <!-- Swiper JS -->
 
@@ -779,8 +787,8 @@ function consoleText(words, id, colors) {
                                 <div class="count-item-circle">
                                     <span class="pe-7s-home"></span>
                                 </div>
-                                <div class="chart" data-percent="35000">
-                                    <h2 class="percent" id="counter1">35000</h2>
+                                <div class="chart" data-percent="35000+">
+                                    <h2 class="percent" id="counter1">35000+</h2>
                                     <h5>Products</h5>
                                 </div>
                             </div>
@@ -857,89 +865,25 @@ function consoleText(words, id, colors) {
 
         <div class=" footer">
             <div class="container">
-                <div class="row">
+                <div class="row" style="display: flex;align-items: baseline;justify-content: center;flex-wrap: wrap;">
 
                     <div class="col-md-3 col-sm-6 wow fadeInRight animated">
                         <div class="single-footer">
                             <h4>About us </h4>
                             <div class="footer-title-line"></div>
 
-                            <img src="medicomp2logo.png" alt="Medicomp India Logo" style="filter: invert(1);width: 100%;height: 100%;">
+                            <img src="medicomp2logo.png" alt="Medicomp India Logo"
+                                style="filter: invert(1);width: 100%;height: 100%;">
 
                             <p>India's 1 <sup>st</sup> online medicine price comparison company, MEDICOMP INDIA ,
-                                is a start-up that gets Live Prices Of Medicines From Different Sites All On One Platform within 5-10 seconds.</p>
+                                is a start-up that gets Live Prices Of Medicines From Different Sites All On One
+                                Platform within 5-10 seconds.</p>
                             <ul class="footer-adress">
-                                <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-                                <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                        <div class="single-footer">
-                            <h4>Quick links </h4>
-                            <div class="footer-title-line"></div>
-                            <ul class="footer-menu">
-                                <li><a href="properties.html">Properties</a> </li>
-                                <li><a href="#">Services</a> </li>
-                                <li><a href="submit-property.html">Submit property </a></li>
-                                <li><a href="contact.html">Contact us</a></li>
-                                <li><a href="faq.html">fqa</a> </li>
-                                <li><a href="faq.html">Terms </a> </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                        <div class="single-footer">
-                            <h4>Last News</h4>
-                            <div class="footer-title-line"></div>
-                            <ul class="footer-blog">
-                                <li>
-                                    <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                        <a href="single.html">
-                                            <img src="assets/img/demo/small-proerty-2.jpg">
-                                        </a>
-                                        <span class="blg-date">12-12-2016</span>
-
-                                    </div>
-                                    <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                        <h6> <a href="single.html">Add news functions </a></h6>
-                                        <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet,
-                                            nulla ...</p>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                        <a href="single.html">
-                                            <img src="assets/img/demo/small-proerty-2.jpg">
-                                        </a>
-                                        <span class="blg-date">12-12-2016</span>
-
-                                    </div>
-                                    <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                        <h6> <a href="single.html">Add news functions </a></h6>
-                                        <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet,
-                                            nulla ...</p>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                        <a href="single.html">
-                                            <img src="assets/img/demo/small-proerty-2.jpg">
-                                        </a>
-                                        <span class="blg-date">12-12-2016</span>
-
-                                    </div>
-                                    <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                        <h6> <a href="single.html">Add news functions </a></h6>
-                                        <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet,
-                                            nulla ...</p>
-                                    </div>
-                                </li>
-
-
+                                <center>
+                                    <a href="single.html">
+                                        <button style="background-color: black;">View More</button>
+                                    </a>
+                                </center>
                             </ul>
                         </div>
                     </div>
@@ -952,10 +896,14 @@ function consoleText(words, id, colors) {
 
                             <form>
                                 <div class="input-group">
-                                    <input class="form-control" type="text" placeholder="E-mail ... ">
+                                    <input class="form-control" type="text" placeholder="E-mail ... "
+                                        style="color: black;">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-primary subscribe" type="button"><i
-                                                class="pe-7s-paper-plane pe-2x"></i></button>
+                                        <a
+                                            href="mailto:krishilsheth@gmail.com?&subject=Medicomp India , India's 1st platform to compare medicine prices&body=//Your suggestion here">
+                                            <button class="btn btn-primary subscribe" type="button"><i
+                                                    class="pe-7s-paper-plane pe-2x"></i></button>
+                                        </a>
                                     </span>
                                 </div>
                                 <!-- /input-group -->
@@ -963,16 +911,15 @@ function consoleText(words, id, colors) {
 
                             <div class="social pull-right">
                                 <ul>
-                                    <li><a class="wow fadeInUp animated" href="https://twitter.com/kimarotec"><i
-                                                class="fa fa-twitter"></i></a></li>
-                                    <li><a class="wow fadeInUp animated" href="https://www.facebook.com/kimarotec"
-                                            data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a class="wow fadeInUp animated" href="https://plus.google.com/kimarotec"
-                                            data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec"
-                                            data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
-                                    <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec"
-                                            data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
+                                    <li><a class="wow fadeInUp animated" href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s"><i
+                                                class="fa fa-facebook"></i></a></li>
+                                    <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s"><i
+                                                class="fa fa-google-plus"></i></a></li>
+                                    <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s"><i
+                                                class="fa fa-instagram"></i></a></li>
+                                    <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s"><i
+                                                class="fa fa-dribbble"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -986,7 +933,8 @@ function consoleText(words, id, colors) {
             <div class="container">
                 <div class="row">
                     <div class="pull-left">
-                        <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016 </span>
+                        <span> (C) <a href="https://instagram.com/krishilsheth">MedicompIndia</a> , All rights reserved
+                            2022 </span>
                     </div>
                     <div class="bottom-menu pull-right">
                         <ul>
@@ -1055,31 +1003,12 @@ function consoleText(words, id, colors) {
 
     <script>
         document.body.style.overflow = 'scroll'
-        function sub() {
-            console.log('called')
-            var c = 0;
-
-            if ((document.getElementById('foodItem').value.trim()).length > 2 && c == 0) {
-                for (var i = 0; i < 10; i++) {
-                    var e = document.createElement('div');
-                    e.className = 'search-form';
-                    e.id = `sf${i}`;
-                    e.style = "height:150px;box-shadow:1px 1px 10px gray;width: 83%;margin-bottom: 20px;background:white";
-                    document.getElementById('styco').appendChild(e);
-
-                    var innerdiv = document.createElement('h3');
-                    innerdiv.innerText = "___";
-                    innerdiv.style = "background:darkgray;animation:skel 2s linear infinite"
-                    document.getElementById(`sf${i}`).appendChild(innerdiv);
-                }
-                c++;
-                document.getElementById('msform').submit();
-            }
-        }
+        
     </script>
     <script>
-        function showLoading()
+        function showLoading(id)
         {
+            document.getElementById(`ms+${id}`).submit();
             document.getElementById('preloader').style.display='block';
             document.getElementById('status').style.display='block';
         }

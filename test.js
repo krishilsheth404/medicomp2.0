@@ -39,12 +39,7 @@ app.post('/details', async(req, res) => {
 
     const final = []
     const l=(req.body.foodItem).split(' ');
-    if(l.length>1){
-        urlForPe = `https://www.pulseplus.in/products/${l[0]}`;
-    }else if (l.length==1){
-        urlForPe = `https://www.pulseplus.in/products/${l[0]}`;
-
-    }
+        urlForPe = `https://pharmeasy.in/search/all?name=${req.body.foodItem}`;
 
 
 
@@ -55,11 +50,11 @@ app.post('/details', async(req, res) => {
             const $ = cheerio.load(data);
             // console.log(data)
       console.log(final);            
-            $('.col-sm-4 a').map((i, elm) => {
+            $('.ProductCard_medicineName__8Ydfq').map((i, elm) => {
                     final.push({
                         name:$(elm).text(),
-                        link:'https://www.pulseplus.in'+$(elm).attr('href')});   
                     })
+                });
                     
                   
                     
@@ -71,7 +66,6 @@ app.post('/details', async(req, res) => {
             // console.log(error);
             final.push({
                 name:"No Products Found",
-                link:'',
             });
          
          

@@ -546,7 +546,7 @@
                     <div class="col-sm-6 col-md-3 p0"  >
                         <div class="box-two proerty-item">
                             <div class="item-thumb">
-                                <a href="property-1.html"><img
+                                <a href="#"><img
                                         src="https://newassets.apollo247.com/pub/media/catalog/product/v/i/vic0426_1_.jpg"></a>
                             </div>
                             <div class="item-entry overflow">
@@ -573,7 +573,7 @@
                     <div class="col-sm-6 col-md-3 p0">
                         <div class="box-two proerty-item">
                             <div class="item-thumb">
-                                <a href="property-1.html"><img
+                                <a href="#"><img
                                         src="https://www.tabletshablet.com/wp-content/uploads/2021/06/Volini-Gel-15-gm-1.jpg"></a>
                             </div>
                             <div class="item-entry overflow">
@@ -599,7 +599,7 @@
                     <div class="col-sm-6 col-md-3 p0" >
                         <div class="box-two proerty-item">
                             <div class="item-thumb">
-                                <a href="property-1.html"><img
+                                <a href="#"><img
                                         src="https://www.netmeds.com/images/product-v1/600x600/825299/endoreg_tablet_14s_63763_0_1.jpg"></a>
                             </div>
                             <div class="item-entry overflow">
@@ -630,7 +630,7 @@
                                 <i class="fa fa-th"></i>
                             </div>
                             <div class="more-entry overflow">
-                                <h5><a href="property-1.html">CAN'T DECIDE Where To Buy From? </a></h5>
+                                <h5><a href="#navb">CAN'T DECIDE Where To Buy From? </a></h5>
                                 <!-- <h5 class="tree-sub-ttl"><a href=""></a> Try Us</h5> -->
                                 <a href="#navb">
                                     <button class="btn border-btn more-black" value="All properties">Try Us</button>
@@ -800,8 +800,8 @@
                                 <div class="count-item-circle">
                                     <span class="pe-7s-home"></span>
                                 </div>
-                                <div class="chart" data-percent="35000">
-                                    <h2 class="percent" id="counter1">35000</h2>
+                                <div class="chart" data-percent="35000+">
+                                    <h2 class="percent" id="counter1">35000+</h2>
                                     <h5>Products</h5>
                                 </div>
                             </div>
@@ -954,27 +954,7 @@
 
     <script>
         document.body.style.overflow = 'scroll'
-        function sub() {
-            console.log('called')
-            var c = 0;
-
-            if ((document.getElementById('foodItem').value.trim()).length > 0 && c == 0) {
-                for (var i = 0; i < 10; i++) {
-                    var e = document.createElement('div');
-                    e.className = 'search-form';
-                    e.id = `sf${i}`;
-                    e.style = "height:150px;box-shadow:1px 1px 10px gray;width: 83%;margin-bottom: 20px;background:white";
-                    document.getElementById('styco').appendChild(e);
-
-                    var innerdiv = document.createElement('h3');
-                    innerdiv.innerText = "___";
-                    innerdiv.style = "background:darkgray;animation:skel 2s linear infinite"
-                    document.getElementById(`sf${i}`).appendChild(innerdiv);
-                }
-                c++;
-                document.getElementById('msform').submit();
-            }
-        }
+     
     </script>
 
 </body>
