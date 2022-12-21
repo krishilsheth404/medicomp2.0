@@ -93,10 +93,10 @@ $(document).ready(function () {
             var curval2 = parseInt($('#counter2').text());
             var curval3 = parseInt($('#counter3').text());
             if (curval <= 7001) {
-                $('#counter').text(curval + 1);
+                $('#counter').text(curval + 5);
             }
             if (curval1 <= 34999) {
-                $('#counter1').text(sdf_FTS((curval1 + 20), 0, ' '));
+                $('#counter1').text(sdf_FTS((curval1 + 50), 0, ' ') + '+');
             }
             if (curval2 <= 10) {
                 $('#counter2').text(curval2 + 1);
