@@ -498,7 +498,7 @@ function consoleText(words, id, colors) {
 
             <% for(var i=0; i < final.length-2; i++) { %>
                 <div style="width: 83%;margin-bottom: 20px;background:white;color: black;">
-                    <form id="msform<%=i+1%>" action="/result" method="POST" class="searchString<%=i+1%> <%=final[i].name.replaceAll(' ','')%> ss">
+                    <form id="msform<%=i+1%>" action="/result" method="POST" class="searchString<%=i+1%>  ss">
                     <a  onclick="this.parentNode.submit();" id="form<%=i+1%>">
                         <div class="search-form "  data-wow-delay="0.8s"
                         style="visibility: visible;animation-delay: 0.8s;animation-name: pulse;color: black;">
