@@ -181,14 +181,12 @@
                                                         
                                                         <span class="proerty-price pull-right "><%=final[i].price%></span>
                                                         <span class="pull-right pulse"></span> <br><br>
-                                                        <ul>
                                                             <%if(final[i].offer[0]){%>
                                                             <span class="pull-left " style="font-weight:bold"><b>Offers </b></span> <br>
                                                             <% for(var j=0; j < final[i].offer.length; j++) { %>
                                                                 <li><%=final[i].offer[j]%></li>
                                                                     <%}%>
                                                                     <%}%>
-                                                            </ul>
                                                             
                                                        
                                                     </div>
@@ -204,28 +202,15 @@
                         </div>
                         <div>
                         <form action="/description" method="POST">
-                            <input type="text" id="foodItem" name="foodItem" value="<%=final[final.length-1]%>">
-                            <input type="text" id="foodLink" name="foodLink" value="<%=final[final.length-2]%>">
-                            <input type="submit" value="View Description">
+                            <input type="text" id="foodItem" name="foodItem" value="<%=final[final.length-1]%>" style="display:none">
+                            <input type="text" id="foodLink" name="foodLink" value="<%=final[final.length-2]%>" style="display:none">
+                            <input type="submit" value="View Description" style="margin: 10px;">
 
                         </form>
                         </div>
 
 
-                        <div class="section">
-                            <div class="pull-right">
-                                <div class="pagination">
-                                    <ul>
-                                        <li><a href="#">Prev</a></li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">Next</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+           
                     </div> 
                     <div class="col-md-3 pl0 padding-top-40">
                         <div class="blog-asside-right pl0">
@@ -267,88 +252,29 @@
 
 
           <!-- Footer area-->
-        <div class="footer-area">
+          <div class="footer-area">
 
             <div class=" footer">
                 <div class="container">
-                    <div class="row">
-
+                    <div class="row" style="display: flex;align-items: baseline;justify-content: center;flex-wrap: wrap;">
+    
                         <div class="col-md-3 col-sm-6 wow fadeInRight animated">
                             <div class="single-footer">
                                 <h4>About us </h4>
                                 <div class="footer-title-line"></div>
-
-                                <img src="assets/img/footer-logo.png" alt="" class="wow pulse" data-wow-delay="1s">
-                                <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
+    
+                                <img src="medicomp2logo.png" alt="Medicomp India Logo"
+                                    style="filter: invert(1);width: 100%;height: 100%;">
+    
+                                <p>India's 1 <sup>st</sup> online medicine price comparison company, MEDICOMP INDIA ,
+                                    is a start-up that gets Live Prices Of Medicines From Different Sites All On One
+                                    Platform within 5-10 seconds.</p>
                                 <ul class="footer-adress">
-                                    <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                    <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-                                    <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>Quick links </h4>
-                                <div class="footer-title-line"></div>
-                                <ul class="footer-menu">
-                                    <li><a href="properties.html">Properties</a>  </li> 
-                                    <li><a href="#">Services</a>  </li> 
-                                    <li><a href="submit-property.html">Submit property </a></li> 
-                                    <li><a href="contact.html">Contact us</a></li> 
-                                    <li><a href="faq.html">fqa</a>  </li> 
-                                    <li><a href="faq.html">Terms </a>  </li> 
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>Last News</h4>
-                                <div class="footer-title-line"></div>
-                                <ul class="footer-blog">
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-
+                                    <center>
+                                        <a href="single.html">
+                                            <button style="background-color: black;">View More</button>
+                                        </a>
+                                    </center>
                                 </ul>
                             </div>
                         </div>
@@ -356,52 +282,46 @@
                             <div class="single-footer news-letter">
                                 <h4>Stay in touch</h4>
                                 <div class="footer-title-line"></div>
-                                <p>Lorem ipsum dolor sit amet, nulla  suscipit similique quisquam molestias. Vel unde, blanditiis.</p>
-
+                                <p>Lorem ipsum dolor sit amet, nulla suscipit similique quisquam molestias. Vel unde,
+                                    blanditiis.</p>
+    
                                 <form>
                                     <div class="input-group">
-                                        <input class="form-control" type="text" placeholder="E-mail ... ">
+                                        <input class="form-control" type="text" placeholder="E-mail ... "
+                                            style="color: black;">
                                         <span class="input-group-btn">
-                                            <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
+                                            <a
+                                                href="mailto:krishilsheth@gmail.com?&subject=Medicomp India , India's 1st platform to compare medicine prices&body=//Your suggestion here">
+                                                <button class="btn btn-primary subscribe" type="button"><i
+                                                        class="pe-7s-paper-plane pe-2x"></i></button>
+                                            </a>
                                         </span>
                                     </div>
                                     <!-- /input-group -->
-                                </form> 
-
-                                <div class="social pull-right"> 
+                                </form>
+    
+                                <div class="social pull-right">
                                     <ul>
-                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/kimarotec"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/kimarotec" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/kimarotec" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
-                                    </ul> 
+                                        <li><a class="wow fadeInUp animated" href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s"><i
+                                                    class="fa fa-facebook"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s"><i
+                                                    class="fa fa-google-plus"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s"><i
+                                                    class="fa fa-instagram"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s"><i
+                                                    class="fa fa-dribbble"></i></a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-
+    
                     </div>
                 </div>
             </div>
-
-            <div class="footer-copy text-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="pull-left">
-                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016  </span> 
-                        </div> 
-                        <div class="bottom-menu pull-right"> 
-                            <ul> 
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">Home</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s">Property</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">Faq</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s">Contact</a></li>
-                            </ul> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+    
+    
+    
         </div>
 
         <script>
