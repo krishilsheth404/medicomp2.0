@@ -34,16 +34,47 @@ app.post('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
+
 app.post('/details', async(req, res) => {
     // Insert Login Code Here
 
     const final = []
     const l=(req.body.foodItem).split(' ');
-        urlForPe = `https://pharmeasy.in/search/all?name=${req.body.foodItem}`;
+       var urlForPe = `https://pharmeasy.in/search/all?name=${req.body.foodItem}`;
+       var  urlForAp = `https://www.apollopharmacy.in/search-medicines/${req.body.foodItem}`;
 
-
-
-    extractdoe = async(url) => {
+        extractMedNamesFromApollo= async (url) => {
+            try {
+                // Fetching HTML
+                const { data } = await axios.get(url)
+    
+                // Using cheerio to extract <a> tags
+                const $ = cheerio.load(data);
+                var temp;
+                // BreadCrumb_peBreadCrumb__2CyhJ
+                $('.ProductCard_productName__f82e9').map((i, elm) => {
+                    if ($(elm).text().includes('Apollo')) {
+    
+                    } else {
+                        final.push({
+                            name:$(elm).text(),
+                        })
+                    }
+                })
+                final.sort();
+                final.push(req.body.foodItem);
+                // console.log(final)
+    
+            } catch (error) {
+                // res.sendFile(__dirname + '/try.html');
+                // res.sendFile(__dirname + '/error.html');
+                // console.log(error);
+    
+                // console.log(error);
+                return {};
+            }
+        };
+         extractMedNamesFromPharmeasy = async(url) => {
         try {
             // Fetching HTML
             const { data } = await axios.get(url)
@@ -70,12 +101,14 @@ app.post('/details', async(req, res) => {
          
          
         }
-    };
-        await extractdoe(urlForPe);
-        final.sort();
+        };
+
+        await Promise.all([ extractMedNamesFromApollo(urlForAp),extractMedNamesFromPharmeasy(urlForPe)])
+
+        // final.sort();
         final.push(req.body.pin);
         final.push(req.body.foodItem);
-        // console.log(final)
+        console.log(final)
         
     res.render(__dirname+'/medDetails', { final: final });
 });

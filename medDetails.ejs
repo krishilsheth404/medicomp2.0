@@ -505,19 +505,21 @@ function consoleText(words, id, colors) {
         <div class="styco" style="height:auto;background-image: linear-gradient(to right, #52c8db, #dcfaff);">
 
             <% for(var i=0; i < final.length-2; i++) { %>
-                <div style="width: 83%;margin-bottom: 20px;background:white;color: black;">
-                    <form id="msform<%=i+1%>" action="/result" method="POST" class="searchString<%=i+1%>  ss">
-                    <a  onclick="this.parentNode.submit();" id="form<%=i+1%>">
-                        <div class="search-form "  data-wow-delay="0.8s"
-                        style="visibility: visible;animation-delay: 0.8s;animation-name: pulse;color: black;">
-                        <!-- <p style="margin: 0px;"><%=final[i]%></p> -->
-                        <h4><%=final[i].name%></h4>
-                        <input type="text" oninput="filter(this.value)"   id="foodItem" name="foodItem"   style="visibility:hidden;text-align: center;background-color: white;color: black;" value="<%=final[i].name%>">
-                        <!-- <input type="text" disabled id="foodLink" name="foodLink"  style="display: none;text-align: center;height: 0px;width: 0px;" value="<%=final[i].link%>"> -->
-                    </div>
-                </a>
-                </form>
+                <%if(final[i].name){%>
+                    <div style="width: 83%;margin-bottom: 20px;background:white;color: black;">
+                        <form id="msform<%=i+1%>" action="/result" method="POST" class="searchString<%=i+1%>  ss">
+                            <a  onclick="this.parentNode.submit();" id="form<%=i+1%>">
+                                <div class="search-form "  data-wow-delay="0.8s"
+                                style="visibility: visible;animation-delay: 0.8s;animation-name: pulse;color: black;">
+                                <!-- <p style="margin: 0px;"><%=final[i]%></p> -->
+                                <h4><%=final[i].name%></h4>
+                                <input type="text" oninput="filter(this.value)"   id="foodItem" name="foodItem"   style="visibility:hidden;text-align: center;background-color: white;color: black;" value="<%=final[i].name%>">
+                                <!-- <input type="text" disabled id="foodLink" name="foodLink"  style="display: none;text-align: center;height: 0px;width: 0px;" value="<%=final[i].link%>"> -->
+                            </div>
+                        </a>
+                    </form>
                 </div>
+                <%}%>
             <%}%>
         </div>
         </center>  
