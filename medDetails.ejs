@@ -9,10 +9,18 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Medicomp India | Home page</title>
-    <meta name="description" content="India's 1st platform to compare medicine prices.">
-    <meta name="author" content="Kimarotec">
-    <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+    <title>Medicomp India | Details page</title>
+    <meta name="title" content="Medicomp India">
+    <meta name="description"
+        content="India's 1s platform to compare medicine prices.We provide unbiased information on various medicines available in the Indian market. ">
+    <meta name="keywords"
+        content="medicine price compare,apollo pharmacy,netmeds.pulse plus,tata 1mg,pharmeasy,3meds,compare medicine prices online,krishil sheth,india's 1st pltform to compare medicine prices,live prices of medicines,medicomp,Medicomp India,India, ">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="1 days">
+    <meta name="author" content="Krishil Rohit Sheth">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
@@ -464,7 +472,7 @@ function consoleText(words, id, colors) {
                         border-radius: 10px;
                         border: 1px solid rgba( 255, 255, 255, 0.18 );">
 
-                        <form id="msform" onsubmit="sub()" action="/details" method="POST" class="form-inline" style="display: flex;margin: 10px;">
+                        <form id="msform" onsubmit="sub(this.id)" action="/details" method="POST" class="form-inline" style="display: flex;margin: 10px;">
 
                             <div class="form-group" style="width: 100%">
                                 <input type="text" required autocomplete="off" minlength="3" id="foodItem" oninput="filter(this.value)" value="<%=final[final.length-1]%>"
@@ -475,7 +483,7 @@ function consoleText(words, id, colors) {
                                     placeholder="Pin Code">
                             </div> -->
 
-                            <button class="btn search-btn" type="submit"><i style="position: absolute;
+                            <button class="btn search-btn" type="submit" onclick="showLoading()"><i style="position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);" class="fa fa-search"></i></button>
@@ -812,53 +820,7 @@ function consoleText(words, id, colors) {
     </div>
 
     <!-- boy-sale area -->
-    <div class="boy-sale-area">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0 col-xs-12">
-                    <div class="asks-first">
-                        <div class="asks-first-circle">
-                            <span class="fa fa-search"></span>
-                        </div>
-                        <div class="asks-first-info">
-                            <h2>ARE YOU LOOKING FOR AN ONLINE PHARMACY?</h2>
-                            <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa
-                            </p>
-                        </div>
-                        <div class="asks-first-arrow">
-                            <a href="properties.html"><span class="fa fa-angle-right"></span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-10 col-sm-offset-1 col-xs-12 col-md-offset-0">
-                    <div class="asks-first">
-                        <div class="asks-first-circle">
-                            <span class="fa fa-usd"></span>
-                        </div>
-                        <div class="asks-first-info">
-                            <h2>DO YOU WANT YOUR PHARMACY TO BE LISTED HERE?</h2>
-                            <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa
-                            </p>
-                        </div>
-                        <div class="asks-first-arrow">
-                            <a href="properties.html"><span class="fa fa-angle-right"></span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <p class="asks-call">QUESTIONS? CALL US : 
-                        <a href="tel:+919372677245">
-                        <span class="strong">
-
-                        +91-9372677245
-                    </span>
-                    </a>
-                </p>
-                </div>
-            </div>
-        </div>
-    </div>
+ 
 
     <!-- Footer area-->
     <div class="footer-area">
@@ -1006,7 +968,7 @@ function consoleText(words, id, colors) {
         
     </script>
     <script>
-        function showLoading(id)
+        function sub(id)
         {
             document.getElementById(`ms+${id}`).submit();
             document.getElementById('preloader').style.display='block';
