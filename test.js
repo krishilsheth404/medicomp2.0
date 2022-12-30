@@ -2,7 +2,7 @@
 const express = require('express'); // Include ExpressJS
 const app = express(); // Create an ExpressJS app
 const bodyParser = require('body-parser'); // Middleware 
-const axios = require('axios')
+const axios = require('axios');
 const path = require('path');
 const cheerio = require('cheerio')
 // const puppeteer = require('puppeteer');
@@ -422,10 +422,19 @@ extractDataOfPharmEasy = async (url) => {
         $('.BreadCrumbLink_breadCrumb__LljfJ').map((i, elm) => {
             temp = $(elm).text();
         })
+        if(temp==undefined||temp==''){
+            $('.BreadCrumbLink_breadCrumb__R6DrR').map((i, elm) => {
+                temp = $(elm).text();
+            })
+        }
         var price = $('.PriceInfo_ourPrice__P1VR1').text();
         if (price == '') {
             price = $('.ProductPriceContainer_mrp__pX-2Q').text();
         }
+        if (price == '') {
+            price = $('.ProductPriceContainer_mrp__mDowM').text();
+        }
+      
 
         if (price != '') {
             if (price.includes('*')) {
@@ -441,7 +450,7 @@ extractDataOfPharmEasy = async (url) => {
             name: 'PharmEasy',
             item: temp,
             link: url,
-            imgLink: $('.swiper-wrapper img').attr('src'),
+            imgLink: $('.swiper-wrapper img[alt=img]').first().attr('src'),
             price: price,
             offer:offers,
         };
